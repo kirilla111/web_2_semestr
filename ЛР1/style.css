@@ -1,0 +1,322 @@
+body {
+    margin-left: 30px;
+}
+
+.text-shadow {
+    text-shadow: 30px 30px 3px pink;
+    color: darksalmon;
+    font-size: 20px;
+    height: 60px;
+    width: 25%;
+    border: 2px solid #CCCCCC;
+}
+
+.wordwrap-normal {
+    margin-top: 30px;
+    height: 60px;
+    width: 20%;
+    border: 2px solid #CCCCCC;
+    word-wrap: normal;
+}
+
+.wordwrap-break-word {
+    margin-top: 30px;
+    height: 60px;
+    width: 25%;
+    border: 2px solid #CCCCCC;
+    word-wrap: break-word;
+}
+
+.rgba {
+    margin-top: 30px;
+    height: 60px;
+    width: 20%;
+    font-size: 26px;
+    color: rgba(255, 255, 255, 0.3);
+    background-color: rgb(214, 86, 43);
+}
+
+.linear-gradient_1 {
+    background: linear-gradient(to right, #FFDDD6 20%, #FFF9ED 20%, #FFF9ED 80%, #DBDBDB 80%);
+}
+
+.linear-gradient_2 {
+    background: linear-gradient(to top left, powderblue, pink);
+}
+
+.radial-gradient_1 {
+    margin-top: 30px;
+    padding-top: 50px;
+    width: 300px;
+    height: 100px;
+    border-radius: 50%;
+    background: radial-gradient(circle at 65% 15%, aqua, darkblue);
+}
+
+.radial-gradient_2 {
+    float: right;
+    margin-top: -160px;
+    margin-right: 30%;
+    padding-top: 50px;
+    width: 300px;
+    height: 100px;
+    border-radius: 50%;
+    background: radial-gradient(farthest-side ellipse at top left, white, #aaaaaa);
+}
+
+.columns {
+    padding-top: 30px;
+    column-count: 3;
+    column-gap: 30px;
+    column-width: 150px;
+    column-rule: 3px solid black;
+}
+
+.box1 {
+    margin-top: 30px;
+    background: white;
+    /* Цвет фона */
+    width: 300px;
+    /* Ширина блока */
+    padding: 10px;
+    /* Поля */
+    border: 2px solid #000;
+    /* Параметры рамки */
+}
+
+.box2 {
+    background: radial-gradient(farthest-side ellipse at top left, white, #aaaaaa);
+    width: 300px;
+    /* Ширина блока */
+    padding: 10px;
+    /* Поля */
+    margin-top: 10px;
+    /* Отступ сверху */
+    border: 2px solid #000;
+    /* Параметры рамки */
+    box-sizing: border-box;
+}
+
+.box3 {
+    background: radial-gradient(farthest-side ellipse at top left, white, #aaaaaa);
+    width: 300px;
+    /* Ширина блока */
+    padding: 10px;
+    /* Поля */
+    margin-top: 20px;
+    /* Отступ сверху */
+    border: 2px solid #000;
+    /* Параметры рамки */
+    box-sizing: padding-box;
+}
+
+.box4 {
+    background: radial-gradient(farthest-side ellipse at top left, white, #aaaaaa);
+    width: 300px;
+    /* Ширина блока */
+    padding: 10px;
+    /* Поля */
+    margin-top: 20px;
+    /* Отступ сверху */
+    border: 2px solid #000;
+    /* Параметры рамки */
+    box-sizing: content-box;
+}
+
+textarea.both {
+    resize: both;
+}
+
+textarea.horizontal {
+    resize: horizontal;
+}
+
+textarea.vertical {
+    resize: vertical;
+}
+
+textarea.none {
+    resize: none;
+}
+
+.transform_1 {
+    height: 50px;
+    width: 150px;
+    background-color: red;
+
+    float: left;
+}
+
+.transform_1:hover {
+    transform: translate(50px, 20px);
+}
+
+.transform_2 {
+    margin-top: 0px;
+    margin-left: 60px;
+    height: 50px;
+    width: 100px;
+    background-color: red;
+    float: left;
+}
+
+.transform_2:hover {
+    transform: rotate(20deg);
+}
+
+.transform_3 {
+    margin-top: 0px;
+    margin-left: 60px;
+    height: 50px;
+    width: 100px;
+    background-color: red;
+    float: left;
+}
+
+.transform_3:hover {
+    transform: scale(2, 2);
+}
+
+.transform_4 {
+    margin-left: 60px;
+    float: left;
+    width: 100px;
+    height: 50px;
+    background-color: red;
+    border: 1px solid black;
+    transition: all 1s ease-in-out;
+}
+
+.transform_4:hover {
+    transform: rotateX(180deg);
+}
+
+.transform_5 {
+    float: left;
+    margin-left: 60px;
+    width: 100px;
+    height: 50px;
+    background-color: red;
+    border: 1px solid black;
+    transition: all 1s ease-in-out;
+}
+
+.transform_5:hover {
+    transform: rotateY(180deg);
+}
+
+.transition_1 {
+    clear: both;
+    color: crimson;
+    margin-top: 50px;
+    text-align: center;
+    padding: 40px;
+    height: 40px;
+    width: 140px;
+    background: linear-gradient(90deg, #f598a8, #f6edb2);
+    transition: all 2s linear 0s;
+}
+
+.transition_1:hover {
+    height: 10px;
+    width: 250px;
+    box-shadow: 0 15px 15px -10px rgba(0, 0, 0, .5);
+}
+
+.transition_2 {
+    margin-top: 20px;
+    margin-bottom: 40px;
+    clear: both;
+    color: orange;
+    text-align: center;
+    padding: 40px;
+    height: 40px;
+    width: 140px;
+    background:
+        linear-gradient(rgba(135, 60, 255, 0.4), rgba(135, 60, 255, 0.0) 80%),
+        linear-gradient(-45deg, rgba(120, 155, 255, 0.9) 25%, rgba(255, 160, 65, 0.9) 75%);
+    transition: 1.5s ease-out;
+}
+
+.transition_2:hover {
+    border: 5px inset #9F908F;
+    background-color: #E0CABB;
+}
+
+.animation_1 {
+    margin: 30px;
+    width: 80px;
+    height: 40px;
+    border: 2px solid #9F908F;
+    border-radius: 15px;
+    background-color: rgb(24, 240, 24);
+    animation-name: example;
+    animation-duration: 3s;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+    text-align: center;
+    background: linear-gradient(90deg, #f598a8, #f6edb2);
+
+}
+
+@keyframes example {
+    from {
+        margin-left: 0px;
+    }
+
+    to {
+        margin-left: 300px;
+    }
+}
+
+.animation_2 {
+    margin: 30px;
+    width: 150px;
+    height: 50px;
+    padding-top: 20px;
+    background-blend-mode: screen;
+    background:
+        linear-gradient(limegreen, transparent),
+        linear-gradient(90deg, skyblue, transparent),
+        linear-gradient(-90deg, coral, transparent);
+    border: 2px solid #9F908F;
+    border-radius: 15px;
+    animation-name: example_two;
+    animation-duration: 5s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+    text-align: center;
+}
+
+@keyframes example_two {
+    0% {
+        background-color: skyblue;
+        font-size: 10px; 
+    }
+
+    20% {
+        background-color: blue;
+    }
+
+    40% {
+        background-color: blueviolet;
+
+    }
+    60% {
+        background-color: firebrick;
+
+    }
+    80% {
+        background-color: coral;
+
+    }
+    100% {
+        background-color: darksalmon;
+        font-size: 20px;
+    }
+}
+.blockRed{
+    height: 30px;
+    background-color: red;
+}
