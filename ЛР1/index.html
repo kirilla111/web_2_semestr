@@ -6,6 +6,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
     <title>ЛР 1</title>
+    <script type="text/javascript">
+        function resetValue(elem) {
+            elem = document.getElementById(elem);
+            elem.value = "";
+        }
+
+    </script>
 </head>
 
 <body>
@@ -43,25 +50,26 @@
             <h3>Многоуровневое меню</h3>
             <ul class="menu">
                 <li class="lvl1"><a href="#">Уровень 1, пункт 1</a>
-                <ul class="menu">
-                    <li class="lvl2"><a href="#">Уровень 2, пункт 1</a>
-                    <ul>
-                        <li class="lvl3"><a href="#">Уровень 3, пункт 1</a></li>
-                        <li class="lvl3"><a href="#">Уровень 3, пункт 2</a></li>
-                        <li class="lvl3"><a href="#">Уровень 3, пункт 3</a></li>
-                        <li class="lvl3"><a href="#">Уровень 3, пункт 4</a></li>
-                        <li class="lvl3"><a href="#">Уровень 3, пункт 5</a></li>
+                    <ul class="menu">
+                        <li class="lvl2"><a href="#">Уровень 2, пункт 1</a>
+                            <ul>
+                                <li class="lvl3"><a href="#">Уровень 3, пункт 1</a></li>
+                                <li class="lvl3"><a href="#">Уровень 3, пункт 2</a></li>
+                                <li class="lvl3"><a href="#">Уровень 3, пункт 3</a></li>
+                                <li class="lvl3"><a href="#">Уровень 3, пункт 4</a></li>
+                                <li class="lvl3"><a href="#">Уровень 3, пункт 5</a></li>
+                            </ul>
+                        </li>
+
+                        <li class="lvl2"><a href="#">Уровень 2, пункт 2</a></li>
+                        <li class="lvl2"><a href="#">Уровень 2, пункт 3</a></li>
                     </ul>
-                    </li>
-                
-                    <li class="lvl2"><a href="#">Уровень 2, пункт 2</a></li>
-                    <li class="lvl2"><a href="#">Уровень 2, пункт 3</a></li>
-                </ul> </li>
+                </li>
                 <li class="lvl1"><a href="#">Уровень 1, пункт 2</a>
-                <ul>
-                    <li class="lvl2"><a href="#">Уровень 2, пункт 1</a></li>
-                    <li class="lvl2"><a href="#">Уровень 2, пункт 2</a></li>
-                </ul>
+                    <ul>
+                        <li class="lvl2"><a href="#">Уровень 2, пункт 1</a></li>
+                        <li class="lvl2"><a href="#">Уровень 2, пункт 2</a></li>
+                    </ul>
                 </li>
             </ul>
         </div>
@@ -70,19 +78,47 @@
             <h3>Выпадающее меню</h3>
             <ul class="menu noindex">
                 <li><a href="#">Меню</a>
-                <ul>
-                <li><a href="#">Пункт 1</a></li>
-                <li><a href="#">Пункт 2</a></li>
-                <li><a href="#">Пункт 3</a></li>
-                <li><a href="#">Пункт 4</a></li>
-                <li><a href="#">Пункт 5</a></li>
-                </ul>
-                </li>        
+                    <ul>
+                        <li><a href="#">Пункт 1</a></li>
+                        <li><a href="#">Пункт 2</a></li>
+                        <li><a href="#">Пункт 3</a></li>
+                        <li><a href="#">Пункт 4</a></li>
+                        <li><a href="#">Пункт 5</a></li>
+                    </ul>
+                </li>
             </ul>
 
         </div>
-        <div class="github"><H2><a href="https://github.com/kirilla111/web_2_semestr">GitHub-репозиторий</a></H2></div>
     </header>
+    <main>
+        <div class="share">Социальные сети:
+
+            <a class="social social-vk" href="https://vk.com"></a>
+            <a class="social social-fb" href="https://www.facebook.com"></a>
+            <a class="social social-tw" href="https://twitter.com"></a>
+        </div>
+
+        <div class="paginator">
+            <a href="prev.html">Назад</a>
+            <a href="prev.html">1</a>
+            <span>&hellip;</span>
+            <a href="next.html">3</a>
+            <a href="next.html">Вперёд</a>
+        </div>
+
+        <p>Оставьте комментарий<Br>
+            <textarea id="textInput" name="comment" cols="40" rows="3"></textarea></Br>
+        </p>
+        <p><input onClick="resetValue('textInput');" type="submit" value="Отправить">
+            <input onClick="resetValue('textInput');" type="reset" value="Очистить">
+        </p>
+
+    </main>
+    <footer>
+        <div class="github">
+            <H2><a href="https://github.com/kirilla111/web_2_semestr">GitHub-репозиторий</a></H2>
+        </div>
+    </footer>
 </body>
 
 </html>

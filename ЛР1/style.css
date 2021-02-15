@@ -3,6 +3,7 @@ body {
     margin-right: 30px;
     margin-top: 10px;
     margin-bottom: 20px;
+
 }
 
 .vertical_nav {
@@ -15,11 +16,12 @@ body {
 }
 
 .gorizontal_nav li {
-    padding-right: 10px;
+    padding-left: 5px;
+    border: 1px solid black;
+    padding-right: 5px;
 }
 
 .gorizontal_nav {
-
     margin-top: 60px;
     font-size: 16pt;
 }
@@ -85,16 +87,85 @@ a:hover {
 }
 
 .github {
+    border-radius: 20px;
     text-align: center;
     font-size: 22px;
     width: inherit;
     background-color: beige
 }
-.github a{
+
+.github a {
     color: black;
     text-decoration: none;
-    
+
 }
-.github a:hover{
+
+.github a:hover {
     font-size: 26pt;
+}
+
+.share {
+    font-family: "PT Sans", sans-serif;
+    width: 400px;
+    padding: 10px;
+    background-color: #ecf0f1;
+    font-size: 16pt;
+    border-radius: 20px;
+}
+
+.social {
+    display: inline-block;
+    width: 50px;
+    height: 50px;
+    margin-right: 10px;
+    margin-left: 5px;
+    vertical-align: middle;
+    background-color: #bdc3c7;
+    border-radius: 20px;
+}
+
+.social-vk {
+    background: url(https://cdn.icon-icons.com/icons2/2429/PNG/512/vk_logo_icon_147212.png);
+    background-size: cover;
+
+}
+
+.social-fb {
+    background: url(https://cdn.iconscout.com/icon/free/png-256/facebook-logo-2019-1597680-1350125.png);
+    background-size: cover;
+}
+
+.social-tw {
+    background: url(https://image.flaticon.com/icons/png/512/124/124021.png);
+    background-size: cover;
+}
+
+.paginator {
+    padding: 10px;
+    margin-top: 50px;
+    text-align: center;
+    vertical-align: middle;
+    line-height: 40px;
+}
+
+.paginator a:hover {
+    color: blue;
+    text-decoration: underline;
+}
+
+.paginator a,
+.paginator span {
+    background-color: darkgrey;
+    min-width: 20px;
+    height: 40px;
+    margin-left: 5px;
+    margin-right: 5px;
+    padding: 0 10px;
+    vertical-align: middle;
+    font-size: 16pt;
+    color: black;
+    text-decoration: none;
+    display: inline-block;
+    min-width: 20px;
+    height: 40px;
 }
