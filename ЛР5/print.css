@@ -1,5 +1,25 @@
 @media print {
-    body {
-        visibility: hidden;
+    body{
+        page-break-inside: avoid;
+        orphans: 5;
+        widows: 2;
+    }
+    footer{
+        display: none;
+    }
+    header{
+        display: none;    
+    }
+    @page{
+        margin-top: 2cm;
+    }
+    @page:first{
+        margin-top: -0.5cm;
+    }
+    .break-page{
+        page-break-after: always;
+    }
+    .hidden-on-print{
+        display: none;
     }
 }
