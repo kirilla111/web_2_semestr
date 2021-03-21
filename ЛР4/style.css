@@ -244,7 +244,7 @@ button:hover {
 }
 
 .video-block {
-    margin-top: -20px;
+    margin-top: -40px;
     padding-left: 20px;
     min-height: 670px;
     padding-right: 20px;
@@ -518,9 +518,6 @@ button:hover {
         padding-left: 80px;
         margin-top: 320px;
         margin-right: 0px;
-        background-image: url(header-imgs/cover.jpg);
-        background-size: cover;
-        background-repeat: no-repeat;
     }
     .main-title {
         margin-top: 1300px;
@@ -532,6 +529,7 @@ button:hover {
         flex-direction: column;
     }
     .video-block {
+        margin-top: 20px;
         flex-direction: column;
     }
     .video-frame {
@@ -600,6 +598,7 @@ button:hover {
         margin-top: 600px;
     }
     .video-block {
+        margin-top: 20px;
         flex-direction: column;
     }
     .video-frame {
@@ -649,6 +648,7 @@ button:hover {
         padding-right: 15px;
     }
     .video-block {
+        margin-top: 20px;
         flex-direction: column;
     }
     .video-frame {
