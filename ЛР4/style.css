@@ -79,7 +79,7 @@ header {
 
 .head-main {
     height: 788px;
-    width: 80%;
+    max-width: 80%;
     margin-top: 20px;
     margin-left: 10%;
     margin-right: 10%;
@@ -130,6 +130,10 @@ button:active {
     background-color: black;
 }
 
+button:hover {
+    background-color: black;
+}
+
 .head-blocks {
     height: 250px;
     margin-top: 60px;
@@ -156,11 +160,6 @@ button:active {
     font-size: 24px;
 }
 
-.block-add-text {
-    margin-top: 10px;
-    color: #737373;
-}
-
 .blue-block {
     background-color: #00A0C1;
     color: white;
@@ -178,7 +177,7 @@ button:active {
 }
 
 .main-title2 {
-    margin-top: 111px;
+    margin-top: 70px;
     font-size: 40px;
     font-weight: bolder;
 }
@@ -189,6 +188,8 @@ button:active {
     margin-top: 20px;
     margin-right: 20px;
     max-width: 511px;
+    color: #737373;
+    font-size: 14px;
 }
 
 .main-blocks1 {
@@ -196,13 +197,15 @@ button:active {
     align-items: center;
     justify-content: center;
     margin-top: 50px;
+    margin-left: 20px;
+    margin-right: 20px;
     gap: 20px;
 }
 
 .main-block1 {
     text-align: center;
-    width: 238px;
-    height: 130px;
+    max-width: 300px;
+    max-height: 180px;
     padding-left: 60px;
     padding-right: 60px;
     padding-top: 30px;
@@ -212,8 +215,6 @@ button:active {
 
 .main-block2 {
     text-align: center;
-    width: 300px;
-    height: 280px;
     padding-top: 30px;
     background-color: white;
 }
@@ -229,11 +230,264 @@ button:active {
     padding-bottom: 5px;
 }
 
+.block-video-add-text {
+    margin-top: 30px;
+    height: 500px;
+    max-width: 363px;
+}
+
 .main-block-add-text {
     color: #737373;
+    max-width: 400px;
     font-size: 16px;
     font-weight: bolder;
 }
+
+.video-block {
+    margin-top: -20px;
+    padding-left: 20px;
+    min-height: 670px;
+    padding-right: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10%;
+}
+
+.video-frame {
+    width: 570px;
+    height: 440px;
+}
+
+.our-friends-blocks {
+    width: 80%;
+    margin-left: 13%;
+    min-height: 139px;
+    gap: 8%;
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 70px;
+}
+
+.our-friends-blocks a:hover {
+    position: relative;
+    top: -20px;
+}
+
+.clients-blocks {
+    margin-top: 0px;
+    padding-top: 40px;
+    width: 100%;
+    height: 439px;
+    background-color: #FAFAFA;
+}
+
+.subscribe-block {
+    position: absolute;
+    background-color: #16697A;
+    border-radius: 10px;
+    margin-top: -30px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    padding-left: 40px;
+    padding-right: 40px;
+    color: white;
+    margin-left: 15%;
+    margin-right: 15%;
+    display: flex;
+    width: 70%;
+    justify-content: center;
+    gap: 10%;
+    align-items: center;
+}
+
+.subscribe-input {
+    width: 300px;
+    font-family: 'Montserrat', sans-serif;
+    padding: 10px;
+    border-radius: 5px;
+    border-bottom-right-radius: 0px;
+    border-top-right-radius: 0px;
+    border: 1px solid white;
+    outline: none;
+}
+
+.subscribe-button {
+    font-family: 'Montserrat', sans-serif;
+    background-color: #FFA62B;
+    margin-left: -5px;
+    padding: 10px;
+    border-radius: 5px;
+    border-bottom-left-radius: 0px;
+    border-top-left-radius: 0px;
+    border: 1px solid white;
+    outline: none;
+    color: white;
+}
+
+.subscribe-button:active {
+    background-color: black;
+    color: white;
+}
+
+.subscribe-button:hover {
+    background-color: black;
+    color: white;
+}
+
+.black-block-underline {
+    width: 100%;
+    position: absolute;
+    margin-top: 50px;
+    background-color: black;
+    height: 100px;
+}
+
+.block-support {
+    min-height: 808px;
+    width: 100%;
+}
+
+.get-support-blocks {
+    max-width: 80%;
+    margin-left: 10%;
+    margin-top: 80px;
+    margin-right: 10%;
+    min-height: 393px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.get-support-block {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: white;
+    max-width: 338px;
+    min-height: 333px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    padding-left: 50px;
+    padding-right: 50px;
+}
+
+.support-button {
+    margin-top: 40px;
+    width: 160px;
+    background-color: white;
+    color: #FFA62B;
+    border: 1px solid #FFA62B;
+    outline: none;
+    border-radius: 6px;
+    padding: 15px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.get-support-block-black {
+    background-color: #252B42;
+    color: white;
+    max-width: 338px;
+    min-height: 393px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    padding-left: 50px;
+    padding-right: 50px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.support-button-black {
+    margin-top: 40px;
+    width: 160px;
+    background-color: #252B42;
+    color: white;
+    border: 1px solid white;
+    outline: none;
+    border-radius: 6px;
+    padding: 15px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.support-button-black:hover {
+    color: black;
+    background-color: white;
+}
+
+.support-button:hover {
+    color: white;
+    background-color: black;
+}
+
+.contact-us {
+    display: flex;
+    gap: 40%;
+    background-color: white;
+    padding-left: 10%;
+    padding-top: 40px;
+    padding-right: 40px;
+    padding-bottom: 40px;
+}
+
+.footer-info {
+    background-color: #16697A;
+    min-height: 272px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-left: 10%;
+    padding-right: 10%;
+    padding-top: 50px;
+    padding-bottom: 50px;
+    gap: 6%;
+}
+
+.footer-info-block {
+    display: flex;
+    flex-direction: column;
+    max-width: 250px;
+    gap: 20px;
+    height: 172px;
+    color: white;
+    font-weight: 500;
+    font-size: 14px;
+}
+
+.footer-info-block a {
+    text-decoration: none;
+    color: white;
+}
+
+.footer-info-block a:hover {
+    text-decoration: underline;
+}
+
+.socials-block {
+    min-height: 44px;
+    background-color: #FAFAFA;
+    font-size: 14px;
+    color: #737373;
+    font-weight: bold;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    padding-left: 10%;
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    gap: 50%
+}
+
+
+/*---------------------------------MEDIA------------------------------------------- */
 
 @media (max-width:650px) {
     .navbar-collapse {
@@ -248,7 +502,7 @@ button:active {
         font-size: 44px;
     }
     header {
-        background: #F6F6F6;
+        background: #F3F3F3;
         height: 600px;
     }
     .head-blocks {
@@ -257,12 +511,16 @@ button:active {
         flex-direction: column;
     }
     .head-main {
-        width: 100%;
+        max-width: 100%;
         margin-left: 0px;
-        padding: 50px;
+        padding-top: 50px;
+        padding-bottom: 50px;
+        padding-left: 80px;
         margin-top: 320px;
+        margin-right: 0px;
         background-image: url(header-imgs/cover.jpg);
         background-size: cover;
+        background-repeat: no-repeat;
     }
     .main-title {
         margin-top: 1300px;
@@ -273,9 +531,61 @@ button:active {
     .main-blocks2 {
         flex-direction: column;
     }
+    .video-block {
+        flex-direction: column;
+    }
+    .video-frame {
+        width: 400px;
+        height: 260px;
+    }
+    .our-friends-blocks {
+        grid-row-gap: 2em;
+        grid-template-columns: repeat(3, 100px);
+    }
+    .subscribe-block {
+        width: 90%;
+        padding-left: 10px;
+        padding-right: 10px;
+        margin-left: 3%;
+        margin-right: 3%;
+        flex-direction: column;
+    }
+    .subscribe-input {
+        width: 200px;
+    }
+    .black-block-underline {
+        height: 130px;
+    }
+    .get-support-blocks {
+        flex-direction: column;
+        margin-bottom: 50px;
+    }
+    .contact-us {
+        flex-direction: column;
+    }
+    .footer-info {
+        padding-left: 20%;
+        justify-content: left;
+        align-items: flex-start;
+        gap: 50px;
+        padding-right: 0px;
+        margin-right: 0px;
+        flex-direction: column;
+    }
+    .footer-info-block {
+        padding-right: 0px;
+        margin-right: 0px;
+        width: 300px;
+    }
+    .socials-block {
+        text-align: center;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+    }
 }
 
-@media (min-width: 650px) and (max-width:800px) {
+@media (min-width: 650px) and (max-width:820px) {
     header {
         background-size: cover;
     }
@@ -289,9 +599,43 @@ button:active {
     .main-title {
         margin-top: 600px;
     }
+    .video-block {
+        flex-direction: column;
+    }
+    .video-frame {
+        width: 500px;
+        height: 360px;
+    }
+    .our-friends-blocks {
+        grid-row-gap: 2em;
+        grid-template-columns: repeat(3, 100px);
+    }
+    .subscribe-block {
+        width: 90%;
+        padding-left: 10px;
+        padding-right: 10px;
+        gap: 5%;
+        margin-left: 4%;
+        margin-right: 6%;
+    }
+    .subscribe-input {
+        width: 150px;
+    }
+    .get-support-blocks {
+        flex-direction: column;
+        margin-bottom: 50px;
+    }
+    .footer-info {
+        padding-left: 20%;
+        justify-content: left;
+        align-items: flex-start;
+        gap: 50px;
+        flex-direction: column;
+    }
+    .footer-info-block {}
 }
 
-@media (min-width: 800px) and (max-width:1100px) {
+@media (min-width: 820px) and (max-width:1100px) {
     .head-blocks {
         margin-top: 300px;
         flex-direction: column;
@@ -303,5 +647,31 @@ button:active {
         width: 140px;
         padding-left: 15px;
         padding-right: 15px;
+    }
+    .video-block {
+        flex-direction: column;
+    }
+    .video-frame {
+        width: 560px;
+        height: 360px;
+    }
+    .our-friends-blocks {
+        grid-row-gap: 2em;
+        grid-template-columns: repeat(3, 100px);
+    }
+    .subscribe-block {
+        width: 90%;
+        padding-left: 10px;
+        padding-right: 10px;
+        gap: 5%;
+        margin-left: 4%;
+        margin-right: 6%;
+    }
+    .subscribe-input {
+        width: 250px;
+    }
+    .get-support-blocks {
+        flex-direction: column;
+        margin-bottom: 50px;
     }
 }
