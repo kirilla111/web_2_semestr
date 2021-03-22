@@ -28,10 +28,10 @@ header {
 
 .navbar-collapse {
     display: flex;
-    width: 100%;
     height: 24px;
     font-size: 14px;
-    align-items: flex-start;
+    align-items: center;
+    justify-content: center;
     color: #737373;
     margin-top: 40px;
     margin-right: 100px;
@@ -154,6 +154,11 @@ button:hover {
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.4), 0 6px 20px 0 rgba(0, 0, 0, 0.4);
 }
 
+.head-block:hover {
+    background-color: black;
+    color: white;
+}
+
 .block-title {
     margin-top: 10px;
     font-weight: bolder;
@@ -204,8 +209,8 @@ button:hover {
 
 .main-block1 {
     text-align: center;
-    max-width: 300px;
-    max-height: 180px;
+    width: 300px;
+    height: 180px;
     padding-left: 60px;
     padding-right: 60px;
     padding-top: 30px;
@@ -489,57 +494,101 @@ button:hover {
 
 /*---------------------------------MEDIA------------------------------------------- */
 
+
 @media (max-width:650px) {
+    .page-head {
+        display: grid;
+        margin-left: 20px;
+    }
+
     .navbar-collapse {
+        width: 100%;
         margin-top: 250px;
         font-size: 40px;
         font-weight: lighter;
-        margin-left: -40px;
+        display: flex;
         flex-direction: column;
-        align-items: center;
+        align-content: center;
+        justify-content: center;
     }
+
     .navbar-collapse a:hover {
         font-size: 44px;
     }
+
+    .title {
+        text-align: center;
+        font-size: 40px;
+    }
+
+    .add-info {
+        font-size: 12px;
+    }
+
     header {
         background: #F3F3F3;
         height: 600px;
     }
+
     .head-blocks {
-        width: 80%;
+        width: 100%;
         margin-top: 300px;
         flex-direction: column;
     }
+
+    .head-block {
+        width: 250px;
+        padding: 40px
+    }
+
+    .head-button1 {
+        margin-bottom: 10px;
+    }
+
     .head-main {
+        text-align: center;
         max-width: 100%;
         margin-left: 0px;
         padding-top: 50px;
         padding-bottom: 50px;
-        padding-left: 80px;
+        padding-left: 10px;
+
         margin-top: 320px;
         margin-right: 0px;
     }
+
     .main-title {
         margin-top: 1300px;
     }
+
     .main-blocks1 {
         flex-direction: column;
     }
+
+    .main-block1 {
+        width: 200px;
+        padding: 30px;
+    }
+
     .main-blocks2 {
         flex-direction: column;
     }
+
     .video-block {
         margin-top: 20px;
         flex-direction: column;
     }
+
     .video-frame {
         width: 400px;
         height: 260px;
     }
+
     .our-friends-blocks {
         grid-row-gap: 2em;
         grid-template-columns: repeat(3, 100px);
     }
+
     .subscribe-block {
         width: 90%;
         padding-left: 10px;
@@ -548,19 +597,24 @@ button:hover {
         margin-right: 3%;
         flex-direction: column;
     }
+
     .subscribe-input {
         width: 200px;
     }
+
     .black-block-underline {
         height: 130px;
     }
+
     .get-support-blocks {
         flex-direction: column;
         margin-bottom: 50px;
     }
+
     .contact-us {
         flex-direction: column;
     }
+
     .footer-info {
         padding-left: 20%;
         justify-content: left;
@@ -570,11 +624,13 @@ button:hover {
         margin-right: 0px;
         flex-direction: column;
     }
+
     .footer-info-block {
         padding-right: 0px;
         margin-right: 0px;
         width: 300px;
     }
+
     .socials-block {
         text-align: center;
         justify-content: center;
@@ -583,32 +639,122 @@ button:hover {
     }
 }
 
+@media (max-width:400px) {
+    .black-block-underline {
+        visibility: hidden;
+    }
+
+    .subscribe-block {
+        width: 100%;
+        margin: 0px;
+        border-radius: 0px;
+    }
+
+    .block-support {
+        margin-top: 100px;
+    }
+
+    .get-support-blocks {
+        margin-top: 270px;
+        gap: 30px;
+    }
+
+    .get-support-blocks-black {
+        margin-top: 270px;
+        gap: 30px;
+    }
+
+    .get-support-block {
+        width: 250px;
+        padding: 20px;
+    }
+
+    .our-friends-blocks {
+        display: flex;
+        flex-direction: column;
+        margin-bottom: 150px;
+    }
+
+    .video-frame {
+        width: 300px;
+        height: 160px;
+    }
+
+    .navbar-togler {
+        margin-top: 80px;
+        gap: 20px;
+        flex-direction: column;
+    }
+
+    header {
+        margin: 0px;
+        padding: 0px;
+    }
+
+    .page-head {
+        display: grid;
+        padding: 0px;
+    }
+
+    .navbar-collapse {
+        padding: 0px;
+        margin-left: -10px;
+        width: 100%;
+    }
+
+    .head-block {
+        margin: 0px;
+        width: 200px;
+        padding: 10px;
+    }
+
+    .main-title {
+        margin-top: 1350px;
+        font-size: 30px;
+    }
+
+    .main-title2 {
+        font-size: 28px;
+    }
+}
+
 @media (min-width: 650px) and (max-width:820px) {
     header {
         background-size: cover;
     }
+
+    .navbar-collapse {
+        margin-left: -20px;
+    }
+
     .head-blocks {
         margin-top: 300px;
         flex-direction: column;
     }
+
     .main-blocks1 {
         flex-direction: column;
     }
+
     .main-title {
         margin-top: 600px;
     }
+
     .video-block {
         margin-top: 20px;
         flex-direction: column;
     }
+
     .video-frame {
         width: 500px;
         height: 360px;
     }
+
     .our-friends-blocks {
         grid-row-gap: 2em;
         grid-template-columns: repeat(3, 100px);
     }
+
     .subscribe-block {
         width: 90%;
         padding-left: 10px;
@@ -617,13 +763,16 @@ button:hover {
         margin-left: 4%;
         margin-right: 6%;
     }
+
     .subscribe-input {
         width: 150px;
     }
+
     .get-support-blocks {
         flex-direction: column;
         margin-bottom: 50px;
     }
+
     .footer-info {
         padding-left: 20%;
         justify-content: left;
@@ -631,6 +780,7 @@ button:hover {
         gap: 50px;
         flex-direction: column;
     }
+
     .footer-info-block {}
 }
 
@@ -639,26 +789,32 @@ button:hover {
         margin-top: 300px;
         flex-direction: column;
     }
+
     .main-title {
         margin-top: 600px;
     }
+
     .main-block1 {
         width: 140px;
         padding-left: 15px;
         padding-right: 15px;
     }
+
     .video-block {
         margin-top: 20px;
         flex-direction: column;
     }
+
     .video-frame {
         width: 560px;
         height: 360px;
     }
+
     .our-friends-blocks {
         grid-row-gap: 2em;
         grid-template-columns: repeat(3, 100px);
     }
+
     .subscribe-block {
         width: 90%;
         padding-left: 10px;
@@ -667,9 +823,11 @@ button:hover {
         margin-left: 4%;
         margin-right: 6%;
     }
+
     .subscribe-input {
         width: 250px;
     }
+
     .get-support-blocks {
         flex-direction: column;
         margin-bottom: 50px;
