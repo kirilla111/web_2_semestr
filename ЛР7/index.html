@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Афанасьев Кирилл ЛР-7</title>
+</head>
+
+<body>
+    <h1>Grid-контейнер display:grid</h1>
+    <div class="grid_container">
+        <div class="grid_item">Ячейка 1</div>
+        <div class="grid_item">Ячейка 2</div>
+        <div class="grid_item">Ячейка 3</div>
+        <div class="grid_item">Ячейка 4</div>
+    </div>
+
+    <h1>Grid-контейнер grid-auto-flow</h1>
+    <div class="grid_container_dense">
+        <div class="grid_item_a">Ячейка 1</div>
+        <div class="grid_item_c">Не явное позиционирование</div>
+        <div class="grid_item_c">Не явное позиционирование </div>
+        <div class="grid_item_b">Ячейка 4</div>
+    </div>
+
+
+    <h1>Grid-контейнер justify_self / align-self</h1>
+    <div class="grid_container_pos">
+        <div class="grid_item_start">Выравнен по левому краю</div>
+        <div class="grid_item_end">Выравнен по правому краю</div>
+        <div class="grid_item_center">Выравнен по центру</div>
+        <div class="grid_item_stretch">Запонен на всю щирину</div>
+        <div class="grid_item_row_start">Выравнен по верху</div>
+        <div class="grid_item_row_end">Выравнен по низу</div>
+        <div class="grid_item_row_center">Выравнен по центру</div>
+        <div class="grid_item_row_stretch">Заполнен на всю высоту</div>
+    </div>
+
+    <h1 style="margin-top: 100px;">Шаблон Grid-контейнер</h1>
+    <div class="grid_container_template">
+        <div class="item_a">header</div>
+        <div class="item_b">main</div>
+        <div class="item_c">side</div>
+        <div class="item_d">footer</div>
+    </div>
+
+    <a style="float: left; margin-top: 100px;" href="https://github.com/kirilla111/web_2_semestr">Git-Hub репозиторий</a>
+</body>
+
+</html>
