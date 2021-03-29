@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Афанасьев Кирилл ЛР-6</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+</head>
+
+<body>
+
+    <div class="animation"><img src="human-move.png" id="myImg"></div>
+
+    <footer>
+        <p> Нажмите на картинку, чтобы её скрыть</p>
+        <a href="https://github.com/kirilla111/web_2_semestr">Git-Hub репозиторий</a></footer>
+
+    <script>
+        $(function() {
+            var bool = true
+            $("#myImg").click(function() {
+                if (bool) {
+                    $("#myImg").css("opacity", "0");
+                    $(".animation").css("box-shadow", "0 0 10px");
+                    $(".animation").css("border-radius", "20px");
+                    bool = false;
+                } else {
+                    $("#myImg").css("opacity", "1");
+                    $(".animation").css("box-shadow", "0 0 0px");
+                    $(".animation").css("border-radius", "0px");
+                    bool = true;
+                }
+            });
+        });
+    </script>
+</body>
+
+
+</html>
