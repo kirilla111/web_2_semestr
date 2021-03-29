@@ -161,3 +161,10 @@ body {
     justify-self: stretch;
     align-self: stretch;
 }
+
+.grid_container_ram {
+    display: grid;
+    grid-gap: 1rem;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    grid-template-rows: 100px;
+}
