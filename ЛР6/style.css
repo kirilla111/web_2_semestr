@@ -5,6 +5,7 @@
         
         #myImg {
             width: 150px;
+            transition: width 2s, height 2s, transform 2s;
         }
         
         .animation {
@@ -14,15 +15,18 @@
             position: absolute;
             animation-name: animation;
             animation: animation 10s ease-in-out infinite;
-            transition: width 2s, height 2s, transform 2s;
+            
         }
-        
+        #myImg:hover{
+            animation-play-state: paused;
+            width: 195px;
+        }
         footer {
             text-align: center;
             margin-top: 50px;
             font-size: 20px;
             color: black;
-            margin-top: 50%;
+            margin-top: 42%;
         }
         
         @keyframes animation {
