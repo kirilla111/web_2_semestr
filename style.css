@@ -670,7 +670,12 @@ button:hover {
     header {
         margin: 0px;
         padding: 0px;
+        width: 103%;
+    }
+    .socials-block {
         width: 100%;
+        margin: 0px;
+        padding: 0px;
     }
     .page-head {
         display: grid;
