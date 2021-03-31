@@ -644,7 +644,7 @@ button:hover {
         gap: 0px;
     }
     .get-support-block {
-        width: 250px;
+        width: 100%;
         padding: 20px;
     }
     .get-support-block-black {
