@@ -624,7 +624,7 @@ button:hover {
         visibility: hidden;
     }
     .subscribe-block {
-        width: 102%;
+        width: 100%;
         margin: 0px;
         padding-left: 0px;
         border-radius: 0px;
@@ -644,11 +644,11 @@ button:hover {
         gap: 0px;
     }
     .get-support-block {
-        width: 250px;
+        width: 100%;
         padding: 20px;
     }
     .get-support-block-black {
-        width: 250px;
+        width: 100%;
         padding: 20px;
     }
     .our-friends-blocks {
@@ -668,6 +668,12 @@ button:hover {
         flex-direction: column;
     }
     header {
+        margin: 0px;
+        padding: 0px;
+        width: 102%;
+    }
+    .socials-block {
+        width: 100%;
         margin: 0px;
         padding: 0px;
     }
