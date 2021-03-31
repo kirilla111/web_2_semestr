@@ -9,6 +9,19 @@ body {
   font-size: 24px;
 }
 
+footer {
+  background-color: black;
+}
+
+footer a {
+  color: whitesmoke;
+}
+
+footer a:hover {
+  font-size: 30px;
+  text-decoration: none;
+}
+
 .header__title {
   padding-top: 20px;
   padding-left: 40px;

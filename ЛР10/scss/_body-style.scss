@@ -7,3 +7,14 @@ body {
     font-family: 'Roboto', sans-serif;
     font-size: $fs;
 }
+
+footer {
+    background-color: black;
+    a {
+        color: whitesmoke;
+        &:hover {
+            font-size: $fs+6px;
+            text-decoration: none;
+        }
+    }
+}
