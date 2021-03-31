@@ -670,6 +670,7 @@ button:hover {
     header {
         margin: 0px;
         padding: 0px;
+        width: 100%;
     }
     .page-head {
         display: grid;
