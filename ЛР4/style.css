@@ -222,6 +222,7 @@ button:hover {
     text-align: center;
     padding-top: 30px;
     background-color: white;
+    height: 290px;
 }
 
 .main-block-img {
@@ -563,7 +564,7 @@ button:hover {
         flex-direction: column;
     }
     .video-frame {
-        width: 400px;
+        width: 350px;
         height: 260px;
     }
     .our-friends-blocks {
@@ -615,7 +616,7 @@ button:hover {
 
 @media (max-width:400px) {
     body {
-        width: 104%;
+        width: 102%;
         padding: 0px;
         margin: 0px;
     }
@@ -623,7 +624,7 @@ button:hover {
         visibility: hidden;
     }
     .subscribe-block {
-        width: 100%;
+        width: 102%;
         margin: 0px;
         padding-left: 0px;
         border-radius: 0px;
@@ -682,6 +683,9 @@ button:hover {
     .navbar-brand {
         width: 50px;
         margin-left: 20px;
+    }
+    .subscribe-input {
+        width: 50%;
     }
     .head-block {
         margin: 0px;
