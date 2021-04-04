@@ -83,3 +83,7 @@ body {
     background-color: black;
     color: white;
 }
+
+.space-between{
+    justify-content: space-between;
+}
