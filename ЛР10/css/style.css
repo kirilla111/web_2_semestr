@@ -31,11 +31,12 @@ footer a:hover {
 }
 
 header {
-  background-color: black;
-  color: whitesmoke;
+  background-color: #1a1a1a;
+  color: #e6d1d1;
   margin-bottom: 30px;
 }
 
+/* "_" в названии файла для того чтобы не создавался его эквивалент в css*/
 /*Переменные*/
 /*Шаблон*/
 .block1 .block1-1 p {

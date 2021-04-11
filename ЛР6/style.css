@@ -15,18 +15,18 @@
             position: absolute;
             animation-name: animation;
             animation: animation 10s ease-in-out infinite;
-            
         }
-        #myImg:hover{
+        
+        #myImg:hover {
             animation-play-state: paused;
             width: 195px;
         }
+        
         footer {
             text-align: center;
-            margin-top: 50px;
-            font-size: 20px;
+            position: absolute;
+            font-size: 14px;
             color: black;
-            margin-top: 42%;
         }
         
         @keyframes animation {
@@ -47,5 +47,130 @@
             100% {
                 top: -300px;
                 transform: rotateX(20deg) rotateY(180deg) rotateZ(60deg);
+            }
+        }
+        
+        .animation-cloud {
+            position: absolute;
+            animation-name: animation-cloud;
+            animation: animation-cloud 30s linear infinite;
+        }
+        
+        @keyframes animation-cloud {
+            0% {
+                left: -10%;
+            }
+            100% {
+                left: 100%;
+            }
+        }
+        
+        .animation-cloud2 {
+            position: absolute;
+            animation-name: animation-cloud2;
+            animation: animation-cloud2 30s linear infinite;
+        }
+        
+        @keyframes animation-cloud2 {
+            0% {
+                left: 110%;
+            }
+            100% {
+                left: 0%;
+            }
+        }
+        
+        .animation-sun {
+            position: absolute;
+            top: 0;
+            right: 0;
+            animation-name: animation-sun;
+            animation: animation-sun 30s ease-in-out infinite;
+        }
+        
+        @keyframes animation-sun {
+            0% {
+                transform: rotateX(0deg) rotateY(0deg) rotateZ(0deg);
+            }
+            100% {
+                transform: rotateX(0deg) rotateY(0deg) rotateZ(360deg);
+            }
+        }
+        
+        .animation-leafs2 {
+            position: absolute;
+            margin-top: 100px;
+            right: -20%;
+            animation-name: animation-leafs2;
+            animation: animation-leafs2 10s linear infinite;
+        }
+        
+        @keyframes animation-leafs2 {
+            0% {
+                right: -20%;
+            }
+            25% {
+                right: 15%;
+            }
+            50% {
+                right: 30%;
+            }
+            75% {
+                right: 55%;
+            }
+            100% {
+                right: 100%;
+            }
+        }
+        
+        .animation-leafs3 {
+            position: absolute;
+            margin-top: 500px;
+            right: -20%;
+            animation-name: animation-leafs3;
+            animation: animation-leafs3 10s linear infinite;
+        }
+        
+        @keyframes animation-leafs3 {
+            0% {
+                right: -20%;
+            }
+            25% {
+                right: 40%;
+            }
+            50% {
+                right: 75%;
+            }
+            75% {
+                right: 90%;
+            }
+            100% {
+                right: 115%;
+            }
+        }
+        
+        .animation-leafs {
+            position: absolute;
+            margin-top: 300px;
+            right: -20%;
+            animation-name: animation-leafs;
+            animation: animation-leafs 10s linear infinite;
+        }
+        
+        @keyframes animation-leafs {
+            0% {
+                right: -20%;
+            }
+            25% {
+                right: 25%;
+            }
+            50% {
+                right: 50%;
+            }
+            75% {
+                right: 75%;
+            }
+            100% {
+                right: 100%;
             }
         }

@@ -6,8 +6,10 @@
     text-align: center;
 }
 
+$base-color: whitesmoke;
+$add-color: black;
 header {
-    background-color: black;
-    color: whitesmoke;
+    background-color: lighten($add-color, 10); // saturate - сделать цвет насыщеней
+    color: darken(saturate($base-color, 30%), 10); //darken - сделать цвет темнее
     margin-bottom: 30px;
 }
