@@ -115,10 +115,16 @@
             50% {
                 right: 30%;
             }
+            60%{
+                margin-top: 100px;
+                right: 45%;
+            }
             75% {
+                margin-top: 500px;
                 right: 55%;
             }
             100% {
+                margin-top: 1000px;
                 right: 100%;
             }
         }
@@ -141,10 +147,16 @@
             50% {
                 right: 75%;
             }
+            60%{
+                right: 80%;
+                margin-top: 500px;
+            }            
             75% {
+                margin-top: 700px;
                 right: 90%;
             }
             100% {
+                margin-top: 1000px;
                 right: 115%;
             }
         }
@@ -167,10 +179,15 @@
             50% {
                 right: 50%;
             }
+            60%{
+                margin-top: 300px;
+                right: 55%;
+            }
             75% {
                 right: 75%;
             }
             100% {
+                margin-top: 1000px;
                 right: 100%;
             }
         }
