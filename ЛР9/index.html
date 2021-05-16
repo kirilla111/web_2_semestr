@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>ЛР 9 - Афанасьев Кирилл</title>
+</head>
+
+<body>
+
+    <header id="header">
+        <div class="header_title">
+            <p>Страница удовлетворябщая критериям доступности</p>
+        </div>
+        <div class="availability_containter">
+            <div class="availability_containter_title">Размер шрифта:</div>
+            <div class="size_container">
+                <button class="size_container__bt_small" onclick="setTextSizeSmall()">Aa</button>
+                <button class="size_container__bt_medium" onclick="setTextSizeMedium()">Aa</button>
+                <button class="size_container__bt_big" onclick="setTextSizeBig()">Aa</button>
+                </div>
+            <div class="availability_containter_title">Цветовая схема:</div>
+            <div class="size_container">         
+                <img id="primary_color" onclick="changeColorToPrimary();" alt="RGB - схема" src="header-img/rgb.png" height="50">
+                <img id="available_color"onclick="changeColorToAvailable();" alt="Черно-белая - схема" src="header-img/white-black.png" height="50">
+            </div>
+        </div>
+    </header>
+    <main>
+        <div id="main_container" class="main_container">
+            <div class="main_title">
+                <p>Основы TCP/IP</p>
+            </div>
+            <div class="text_block">
+                <p class="text_block__main_text">
+                    Стек протоколов TCP/IP (Transmission Control Protocol/Internet Protocol, 
+                    протокол управления передачей/протокол интернета) — сетевая модель,
+                     описывающая процесс передачи цифровых данных. 
+                     Она названа по двум главным протоколам, по этой модели построена глобальная сеть — интернет. 
+                     Сейчас это кажется невероятным, но в 1970-х информация не могла быть передана из одной сети в другую,
+                      с целью обеспечить такую возможность был разработан стек интернет-протоколов также известный как TCP/IP.
+                </p>
+
+                <p class="text_block__main_text">
+                    Разработкой этих протоколов занималось Министерство обороны США,
+                     поэтому иногда модель TCP/IP называют DoD (Department of Defence) модель.
+                      Если вы знакомы с моделью OSI, то вам будет проще понять построение модели TCP/IP,
+                       потому что обе модели имеют деление на уровни, внутри которых действуют определенные протоколы
+                        и выполняются собственные функции. Мы разделили статью на смысловые части, чтобы было проще понять,
+                         как устроена модель TCP/IP:</p>
+
+                <img class="main_container__img" src="main-img/osi-tcp-ip.png">
+
+            </div>
+
+        </div>
+    </main>
+
+    <footer id="footer_container">
+            <a href="https://github.com/kirilla111/web_2_semestr"><p>gitHub-репозиторий</p></a>
+    </footer>
+    <script type="text/javascript">
+        var small = "16px";
+        var med = "24px";
+        var big = "30px";
+        function changeColorToAvailable() {
+            document.getElementById('header').style.background = "black";
+            document.getElementById('header').style.color = "white";
+            document.getElementById('main_container').style.background = "black";
+            document.getElementById('main_container').style.color = "white";
+            document.getElementById('footer_container').style.background = "black";
+            var elems = document.getElementsByTagName("p");
+            for(i=1; i < elems.length; i++) {
+                elems[i].style.color = "white";
+            }
+        }
+        
+        function changeColorToPrimary(colorValue) {
+            document.getElementById('header').style.background = "cornflowerblue";
+            document.getElementById('header').style.color = "black";
+            document.getElementById('main_container').style.background = "white";
+            document.getElementById('main_container').style.color = "black";
+            document.getElementById('footer_container').style.background = "cornflowerblue";
+            var elems = document.getElementsByTagName("p");
+            for(i=1; i < elems.length; i++) {
+                elems[i].style.color = "black";
+            }
+        }
+        function setTextSizeSmall() {
+        var elems = document.getElementsByTagName("p");
+            for(i=1; i < elems.length; i++) {
+                elems[i].style.fontSize = small;
+            }
+        }
+
+        function setTextSizeMedium() {
+        var elems = document.getElementsByTagName("p");
+            for(i=1; i < elems.length; i++) {
+                elems[i].style.fontSize = med;
+            }
+        }
+        
+        function setTextSizeBig() {
+        var elems = document.getElementsByTagName("p");
+            for(i=1; i < elems.length; i++) {
+                elems[i].style.fontSize = big;
+            }
+        }
+    </script>
+
+</body>
+</html>
