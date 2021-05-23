@@ -38,14 +38,14 @@ header{
     justify-items: center;
 }
 .availability_containter_title{
-    font-size: 26px;
+    font-size: 1.6rem;
 }
 .main_title{
-    font-size: 30px;
+    font-size: 2rem;
     text-decoration: underline;
 }
 .header_title{
-    font-size: 30px;
+    font-size: 2rem;
     display: flex;
     justify-content: center;
     text-align: center;
@@ -58,7 +58,7 @@ p{
 }
 .text_block__main_text{
     color: black;
-    font-size: 16px;
+    font-size: 1rem;
 }
 .main_container__img{
     height: auto;
@@ -80,15 +80,15 @@ button:hover,button:active{
 }
 .size_container__bt_small{
     font-weight: lighter;
-    font-size: 16px;
+    font-size: 1rem;
 }
 .size_container__bt_medium{
     font-weight: normal;
-    font-size: 22px;
+    font-size: 1.5rem;
 }
 .size_container__bt_big{
     font-weight: bold;
-    font-size: 28px;
+    font-size: 1.7rem;
 }
 .size_container{
     display: flex;
@@ -112,4 +112,30 @@ button:hover,button:active{
 }
 a:hover{
     text-decoration: underline;
+}
+@media (max-width:500px) {
+    p{
+        padding: 20px;
+    }
+    .size_container{
+        flex-direction: column;
+    }
+    .header_title{
+        font-size: 1.5rem;
+    }
+    .main_title{
+        font-size: 1.5rem;
+    }
+    .text_block__main_text{
+        font-size: 0.6rem;
+    }
+    .main_container{
+        padding: 1px;
+        max-width: 100%;
+    }
+    main{
+        margin-left: 0;
+        margin-right: 0;
+        padding: 0px;
+    }
 }
