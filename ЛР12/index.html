@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/style.css">
+    <title>ЛР-12 Афанасьев Кирилл</title>
+</head>
+<body>
+    <header>
+        <div class="header_title"><p>Канбан</p></div>
+        <div class="theme_mode">
+            <div class="theme_mode__title"><p>Темная тема</p></div>
+            <div class="theme_mode__change_theme_button">
+                <div id = "switch_rotate_b" class="change_theme_button__switch" onclick="switch_rotate(this)"></div>
+                <div style="padding-left: 5px; padding-right: 5px; display: flex; flex-direction: row; gap: 10px;">
+                    <p>ON</p>
+                    <p>OFF</p>
+                </div>
+            </div>
+        </div>
+    </header>
+    <main>
+        <div class="add_card_container">
+            <p class="text_1">Добавить новую задачу</p>
+            <div class="add_card_container__form">
+                <input class="form__input" type="text" size="40" placeholder="Описание">
+                <button class="form__submit" onclick="add_card_form()">&#128929</button>
+            </div>
+        </div>
+        <div class="tasks_container">
+            <div class="tasks_container__task_container">
+                <div class="task_container__title"><h2>План (1)</h2></div>
+                <div class="task_container__card">
+                    <div class="card__title"><h3>Задача №4</h3></div>
+                    <div class="card__text">
+                        <div class="text__text"><p>Lorem ipsum</p></div>
+                        <div class="text__title_text"><p></p></div>
+                        <div class="text__text"><p></p></div>
+                        <div class="text__title_text"><p></p></div>
+                        <div class="text__text"><p></p></div>
+                    </div>
+                    <div class="card__options">
+                        <img src="imgs/btn_edit.png" width="30" alt="edit">
+                        <img src="imgs/btn_done.png" width="30" alt="done">
+                    </div>
+                </div>
+            </div>
+            <div class="tasks_container__task_container">
+                <div class="task_container__title"><h2>В работе (2)</h2></div>
+                <div class="task_container__card">
+                    <div class="card__title"><h3>Задача №3</h3></div>
+                        <div class="card__text">
+                        <div class="text__text"><p>Lorem ipsum</p></div>
+                        <div class="text__title_text"><p>Дата и время начала</p></div>
+                        <div class="text__text"><p>20.04.2020 09:00:00</p></div>
+                        <div class="text__title_text"><p>Ответственный</p></div>
+                        <div class="text__text"><p>Иван</p></div>
+                    </div>
+                    <div class="card__options">
+                        <img src="imgs/btn_edit.png" width="30" alt="edit">
+                        <img src="imgs/btn_done.png" width="30" alt="done">
+                    </div>
+                </div>
+                <div class="task_container__card">
+                    <div class="card__title"><h3>Задача №2</h3></div>
+                        <div class="card__text">
+                        <div class="text__text"><p>Lorem ipsum</p></div>
+                        <div class="text__title_text"><p>Дата и время начала</p></div>
+                        <div class="text__text"><p>20.04.2020 09:00:00</p></div>
+                        <div class="text__title_text"><p>Ответственный</p></div>
+                        <div class="text__text"><p>Иван</p></div>
+                    </div>
+                    <div class="card__options">
+                        <img src="imgs/btn_edit.png" width="30" alt="edit">
+                        <img src="imgs/btn_done.png" width="30" alt="done">
+                    </div>
+                </div>
+            </div>
+            <div class="tasks_container__task_container">
+                <div class="task_container__title"><h2>Готово (3)</h2></div>
+                <div class="task_container__card">
+                    <div class="card__title"><h3>Задача №2</h3></div>
+                        <div class="card__text">
+                        <div class="text__text"><p>Lorem ipsum</p></div>
+                        <div class="text__title_text"><p>Дата и время начала</p></div>
+                        <div class="text__text"><p>20.04.2020 09:00:00</p></div>
+                        <div class="text__title_text"><p>Ответственный</p></div>
+                        <div class="text__text"><p>Иван</p></div>
+                    </div>
+                    <div class="card__options">
+                        <img src="imgs/btn_edit.png" width="30" alt="edit">
+                        <img src="imgs/btn_done.png" width="30" alt="done">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+    <div id = "form_id">
+        <div class="form_header">
+            <img onclick="close_form()" src="imgs/exit.png" alt="exit">
+        </div>
+        <form>
+                <div>
+                    <p class="text__title_text">Name:</p>
+                    <input class="form__container" type="text" id="name" name="user_name" />
+                </div>
+                <div class="form_item">
+                <p class="text__title_text">Статус</p>
+                <div class="dropdown form__container">
+                    <div id= "dropdown_text" onclick="myFunction()" class="dropbtn">
+                        <p>Dropdown</p>
+                        <p>˅</p>
+                    </div>
+                    <div>
+
+                        <div id="myDropdown" class="dropdown-content">
+                            <p onclick="setDropDownText('План')">План</p>
+                            <p onclick="setDropDownText('В работе')">В работе</p>
+                            <p onclick="setDropDownText('Готово')">Готово</p>
+                        </div>
+                    </div>
+                  </div>
+                </div>
+                  <div>
+                     <p class="text__title_text">Name:</p>
+                    <input type="email" id="mail" name="user_email" />
+                </div>
+                <div>
+                    <p class="text__title_text">Name:</p>
+                    <textarea id="msg" name="user_message"></textarea>
+              </div>
+        </form>
+    </div>
+
+
+</body>
+    <script>
+        var isSwitched = false;
+        function switch_rotate(element){
+            if (isSwitched){
+                element.style.animation="spin2 0.3s 1";
+                element.style.animationFillMode ="forwards";
+
+                document.body.style.backgroundColor = "white";
+                var elems = document.getElementsByTagName("p");
+                elems[0].style.color = "black";
+                elems[1].style.color = "black";
+                for(i=2; i < elems.length; i++) {
+                    elems[i].style.color = "#219afb";
+                }
+                var elems = document.getElementsByTagName("h3");
+                for(i=0; i < elems.length; i++) {
+                    elems[i].style.color = "#219afb";
+                }
+                var elems = document.getElementsByTagName("h2");
+                for(i=0; i < elems.length; i++) {
+                    elems[i].style.color = "black";
+                }
+                var elems = document.getElementsByTagName("input");
+                for(i=0; i < elems.length; i++) {
+                    elems[i].classList.remove('form__submit_black');
+                    elems[i].style.backgroundColor = "white";
+                }
+                var elems = document.getElementsByClassName("task_container__card");
+                for(i=0; i < elems.length; i++) {
+                    elems[i].style.backgroundColor = "#f1f9ff";
+                    elems[i].style.border = "0px";
+                }
+            }else{
+                element.style.animation="spin1 0.3s 1";
+                element.style.animationFillMode ="forwards";
+
+                document.body.style.backgroundColor = "black";
+                var elems = document.getElementsByTagName("p");
+                for(i=0; i < elems.length; i++) {
+                    elems[i].style.color = "#fff";
+                }
+                var elems = document.getElementsByTagName("h3");
+                for(i=0; i < elems.length; i++) {
+                    elems[i].style.color = "#fff";
+                }
+                var elems = document.getElementsByTagName("h2");
+                for(i=0; i < elems.length; i++) {
+                    elems[i].style.color = "#fff";
+                }
+                var elems = document.getElementsByTagName("input");
+                for(i=0; i < elems.length; i++) {
+                    elems[i].classList.add('form__submit_black');
+                    elems[i].style.backgroundColor = "black";
+                }
+                var elems = document.getElementsByClassName("task_container__card");
+                for(i=0; i < elems.length; i++) {
+                    elems[i].style.backgroundColor = "black";
+                    elems[i].style.border = "1px solid white";
+                }
+            }
+            isSwitched = !isSwitched;
+        }
+        function add_card_form(){
+            document.getElementById("form_id").style.display = "block";
+        }
+        function close_form(){
+            document.getElementById("form_id").style.display = "none";
+        }
+        function myFunction() {
+             document.getElementById("myDropdown").classList.toggle("show");
+}
+
+// Close the dropdown menu if the user clicks outside of it
+    window.onclick = function(event) {
+    if (!event.target.matches('.dropbtn')) {
+
+        var dropdowns = document.getElementsByClassName("dropdown-content");
+        var i;
+        for (i = 0; i < dropdowns.length; i++) {
+        var openDropdown = dropdowns[i];
+        if (openDropdown.classList.contains('show')) {
+            openDropdown.classList.remove('show');
+        }
+        }
+    }
+    }
+    function setDropDownText(text){
+        document.getElementById("dropdown_text").innerHTML = text;
+    }
+    </script>
+</html>
