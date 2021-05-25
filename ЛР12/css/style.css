@@ -15,11 +15,11 @@ header{
     background-color: inherit;
     vertical-align: middle;
 }
-.header_title{
+.header__title{
     font-size: 3rem;
     font-weight: bold;
 }
-.theme_mode{
+.header__theme_mode{
     display: flex;
     flex-direction: row;
     align-items:center;
@@ -93,7 +93,7 @@ header{
       flex-direction: row;
       gap:20px;
   }
-  .tasks_container{
+  .main__tasks_container{
     margin-top: 50px;
     padding-left: 5%;
     padding-right: 5%;
@@ -140,8 +140,8 @@ header{
       color: inherit;
       font-size: 0.8rem;
   }
-  .text__title_text{
-    color: inherit;
+  .form_item__title_text{
+    color: #219afb;
     font-size: 0.8rem;
     font-weight: bold;
   }
@@ -183,7 +183,7 @@ header{
      padding-left: 25%;
      padding-right: 25%;
  }
- .dropbtn {
+ .container__dropbtn {
     cursor: pointer;
     display: flex;
     flex-direction: row;
@@ -195,8 +195,8 @@ form p{
     margin: 0;
     padding: 0;
 }
-.form__container{
-    background-color: #bde1fd;
+.form_item__container{
+    background-color: #f1f9ff;
     border-radius: 10px;
     border: 1px solid #219afb;
     font-size: 0.7rem;
@@ -205,6 +205,7 @@ form p{
     padding-right: 15px;
     padding-top: 10px;
     padding-bottom: 10px;
+    font-weight: bold;
 }
 .form_item{
     width: 100%;
@@ -212,23 +213,54 @@ form p{
     flex-direction: column;
     gap: 10px;
 }
-/* Dropdown button on hover & focus */
-.dropbtn:hover, .dropbtn:focus {
+.form_item_button{
+    width: 85%;
+    text-align: center;
+    border-radius: 5px;
+    background-color: #219afb;
+    color: white;
+    font-size: 0.7rem;
+    padding: 8px;
+    font-weight: lighter;
+}
+.form_item_button:hover{
     background-color: #2980B9;
 }
-
+input:focus{
+    outline: 0;
+}
+.dropdown-content__text{
+    padding: 10px;
+    background-color: inherit;
+}
+.dropdown-content__text:hover{
+    color: white;
+    background-color: #219afb;
+}
+/* Dropdown button on hover & focus */
+.container__dropbtn:hover, .dropbtn:focus {
+  
+}
+.unselectable {
+    -webkit-touch-callout: none; /* iOS Safari */
+    -webkit-user-select: none;   /* Chrome/Safari/Opera */
+    -khtml-user-select: none;    /* Konqueror */
+    -moz-user-select: none;      /* Firefox */
+    -ms-user-select: none;       /* Internet Explorer/Edge */
+    user-select: none;           /* Non-prefixed version, currently
+                                    not supported by any browser */
+  }
 /* The container <div> - needed to position the dropdown content */
 .dropdown {
     position: relative;
     display: inline-block;
-    width: 100%;
 }
 
 /* Dropdown Content (Hidden by Default) */
 .dropdown-content {
     display: none;
     position: absolute;
-    background-color: #f1f1f1;
+    background-color: #f1f9ff;
     min-width: 160px;
     box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
     z-index: 1;
@@ -243,14 +275,14 @@ form p{
 }
 
 /* Change color of dropdown links on hover */
-.dropdown-content a:hover {background-color: #ddd}
+.dropdown-content a:hover {background-color: #f1f9ff;}
 
 /* Show the dropdown menu (use JS to add this class to the .dropdown-content container when the user clicks on the dropdown button) */
 .show {display:block;}
 
 
   @media (max-width:1000px) and (min-width: 500px) {
-      .tasks_container{
+      .main__tasks_container{
         grid-template-columns: repeat(2,1fr);
         grid-template-rows: repeat(2,1fr);
         row-gap: 50px;
@@ -258,7 +290,7 @@ form p{
 
   }
   @media (max-width:500px) {
-    .tasks_container{
+    .main__tasks_container{
         grid-template-columns: repeat(1,1fr);
         grid-template-rows: repeat(3,1fr);
         row-gap: 50px;
@@ -270,7 +302,7 @@ form p{
     .form__input{
         width: 70%;
     }
-    .header_title{
+    .header__title{
         height: 100px;
     }
 }
