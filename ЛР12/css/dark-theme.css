@@ -1,0 +1,311 @@
+body{
+    margin: 0;
+    padding: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: black;
+    color: white;
+    padding-left:  10%;
+    padding-right:  10%;
+    padding-top: 30px;
+}
+header{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    background-color: inherit;
+    vertical-align: middle;
+}
+.header__title{
+    font-size: 3rem;
+    font-weight: bold;
+}
+.header__theme_mode{
+    display: flex;
+    flex-direction: row;
+    align-items:center;
+    gap: 10px;
+    
+}
+.theme_mode__change_theme_button{
+    background-color: #bde1fd;
+    color: white;
+    font-size: 0.5rem;
+    border-radius: 25px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding-left: 2px;
+    padding-right: 2px;
+    padding-top: 0px;
+    padding-bottom: 0px;
+}
+.theme_mode__title{
+    font-size: 1rem;
+}
+.change_theme_button__switch{
+    background-color: white;
+    margin-top: 1px;
+    margin-left: -1px;
+    height: 23px;
+    width: 22px;
+    border-radius: 20px;
+    position: absolute;
+    
+}
+@keyframes spin1 { 
+    0% { transform: translateX(0px) }				
+    100% { transform: translateX(28px) }
+ }
+ @keyframes spin2 { 
+    0% { transform: translateX(28px) }				
+    100% { transform: translateX(0px) }
+ }
+ .text_1{
+    margin-top: 5px;
+    margin-bottom: 5px;
+    color: white;
+    font-weight: bold;
+    font-size: 0.8rem;
+ }
+ .form__input{
+    border-radius: 15px;
+    border: 1px solid #219afb;
+    height: 100%;
+    padding: 15px;
+    background-color: black;
+    color:white;
+ }
+ .form__submit{
+     width: 45px;
+     height: 45px;
+     border-radius: 25px;
+     border: 0px;
+     color: white;
+     font-size: 1.5rem;
+     background-color: #219afb;
+ }
+ ::placeholder {
+    color: white;
+    font-weight: bold;
+  }
+  .add_card_container__form{
+      display: flex;
+      flex-direction: row;
+      gap:20px;
+  }
+  .main__tasks_container{
+    margin-top: 50px;
+    padding-left: 5%;
+    padding-right: 5%;
+      display: grid;
+        grid-template-columns: repeat(3,1fr);
+      justify-content: space-between;
+      column-gap: 50px;
+  }
+  .tasks_container__task_container{
+    border: 1px solid #219afb;
+    border-radius: 10px;
+    min-height: 500px;
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+  }
+  .tasks_container__task_container h2{
+    margin: 0;
+  }
+  .task_container__card{
+    display: flex;
+    flex-direction: column;
+    justify-content:space-between;
+    gap: 10px;
+    border-radius: 10px;
+    padding: 6%;
+    background-color: black;
+    border: 1px solid #219afb;
+    color: white;
+    min-height: 300px;
+  }
+  .card__text{
+      min-height: 200px;
+  }
+  .task_container__card h3{
+      padding: 0;
+      margin: 0;
+      font-size: 1rem;
+  }
+  .text__text{
+      color: inherit;
+      font-size: 0.8rem;
+  }
+  .form_item__title_text{
+    color: white;
+    font-size: 0.8rem;
+    font-weight: bold;
+  }
+.card__options{
+    display: flex;
+    flex-direction: row;
+    justify-content:flex-end;
+    align-items:flex-end;
+    gap: 10px;
+}
+.form__submit_black::-webkit-input-placeholder {
+    color: #fff;
+ }
+ #form_id{
+     position: absolute;
+     display: none;
+     top: 50px;
+     border-radius: 20px;
+     left: 0;
+     width: 40%;
+     height: 600px;
+     margin-left: 30%;
+     margin-right: 30%;
+     border: 1px solid black;
+     background-color: white;
+ }
+ .form_header{
+     padding: 30px;
+     display: flex;
+     justify-content:flex-end;
+     align-items:flex-end;
+ }
+ form{
+     display: flex;
+     flex-direction: column;
+     justify-content: center;
+     align-items: center;
+     gap: 25px;
+     padding-left: 25%;
+     padding-right: 25%;
+ }
+ .container__dropbtn {
+    cursor: pointer;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 0;
+    margin: 0;
+}
+form p{
+    margin: 0;
+    padding: 0;
+}
+.form_item__container{
+    background-color: #f1f9ff;
+    border-radius: 10px;
+    border: 1px solid #219afb;
+    font-size: 0.7rem;
+    color: #219afb;
+    padding-left: 15px;
+    padding-right: 15px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    font-weight: bold;
+}
+.form_item{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+.form_item_button{
+    width: 85%;
+    text-align: center;
+    border-radius: 5px;
+    background-color: #219afb;
+    color: white;
+    font-size: 0.7rem;
+    padding: 8px;
+    font-weight: lighter;
+}
+.form_item_button:hover{
+    background-color: #2980B9;
+}
+input:focus{
+    outline: 0;
+}
+.dropdown-content__text{
+    padding: 10px;
+    background-color: inherit;
+}
+.dropdown-content__text:hover{
+    color: white;
+    background-color: #219afb;
+}
+/* Dropdown button on hover & focus */
+.container__dropbtn:hover, .dropbtn:focus {
+  
+}
+.unselectable {
+    -webkit-touch-callout: none; /* iOS Safari */
+    -webkit-user-select: none;   /* Chrome/Safari/Opera */
+    -khtml-user-select: none;    /* Konqueror */
+    -moz-user-select: none;      /* Firefox */
+    -ms-user-select: none;       /* Internet Explorer/Edge */
+    user-select: none;           /* Non-prefixed version, currently
+                                    not supported by any browser */
+  }
+/* The container <div> - needed to position the dropdown content */
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+/* Dropdown Content (Hidden by Default) */
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f1f9ff;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+}
+
+/* Links inside the dropdown */
+.dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+
+/* Change color of dropdown links on hover */
+.dropdown-content a:hover {background-color: #f1f9ff;}
+
+/* Show the dropdown menu (use JS to add this class to the .dropdown-content container when the user clicks on the dropdown button) */
+.show {display:block;}
+
+
+  @media (max-width:1000px) and (min-width: 500px) {
+      .main__tasks_container{
+        grid-template-columns: repeat(2,1fr);
+        grid-template-rows: repeat(2,1fr);
+        row-gap: 50px;
+      }
+
+  }
+  @media (max-width:500px) {
+    .main__tasks_container{
+        grid-template-columns: repeat(1,1fr);
+        grid-template-rows: repeat(3,1fr);
+        row-gap: 50px;
+    }
+
+    header{
+        flex-direction: column;
+    }
+    .form__input{
+        width: 70%;
+    }
+    .header__title{
+        height: 100px;
+    }
+}
+
+
