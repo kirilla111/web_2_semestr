@@ -37,36 +37,43 @@
               </div>
           </div>
           <div  class="main__tasks_container" >
-            <tasksContainer v-for="(col,index) in tasksContainers" :key="index"
-            :title='col.title'
-            :toChange='isSwitched'
-            :colIndex='col.colIndex'
-            />
+              <board :id="'board-1'" :title="'План (1)'">
+                <card v-bind:class="[{darkMode_c: isSwitched}, {lightMode_c: !isSwitched}]"
+                :id="'card1'" 
+                :title="'t1'"
+                :owner="'o1'"
+                :colIndex='1'
+                />
+            </board>
+              <board :id="'board-2'" :title="'В работе (2)'">
+                <card v-bind:class="[{darkMode_c: isSwitched}, {lightMode_c: !isSwitched}]"
+                :id="'card2'"
+                :title="'t1'"
+                :owner="'o2'"
+                :colIndex='2'
+                />
+            </board>
+            <board :id="'board-3'" :title="'Готово (3)'">
+                <card v-bind:class="[{darkMode_c: isSwitched}, {lightMode_c: !isSwitched}]"
+                :id="'card3'"
+                :title="'t3'"
+                :owner="'o3'"
+                :colIndex='3'
+                />
+            </board>
           </div>
     </main>
-    <div class="main__add_card_container">
-      <tasksContainer id="board-1">
-        <card id="card-1" draggable="true">
-          <p>card_one</p>
-        </card>
-      </tasksContainer>
-            <tasksContainer id="board-1">
-        <card id="card-1" draggable="true">
-          <p>card_one</p>
-        </card>
-      </tasksContainer>
-    </div>
   </body>
 </template>
 
 <script>
-import tasksContainer from './components/tasksContainer'
 import card from './components/card'
+import board from './components/board.vue'
 
 export default {
   name: 'App',
-  components: { tasksContainer, card },
-  data () {
+  components: { board, card },
+    data () {
     return {
       isSwitched: false,
       tasksContainers: [
@@ -89,7 +96,7 @@ export default {
     }
   },
   methods: {
-    switch_theme: function (event) {
+    switch_theme: function () {
       this.isSwitched = !this.isSwitched
     }
   }
@@ -97,6 +104,9 @@ export default {
 </script>
 
 <style>
+* {
+  box-sizing: border-box;
+}
 body{
     margin: 0;
     padding: 0;
@@ -284,4 +294,29 @@ header {
         height: 100px;
     }
   }
+  .lightMode_c{
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        border-radius: 10px;
+        padding: 6%;
+        padding-top: 0;
+        background-color: #f1f9ff;
+        color: #219afb;
+        min-height: 200px;
+        overflow: hidden;
+    }
+    .darkMode_c{
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        border-radius: 10px;
+        padding: 6%;
+        padding-top: 0;
+        background-color: black;
+        color: white;
+        min-height: 200px;
+        border: 1px solid white;
+        overflow: hidden;
+    }
 </style>

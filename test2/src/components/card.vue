@@ -1,5 +1,5 @@
 <template>
-    <div :id="id" class="card" :draggable="draggable" @dragstart="dropStart" @dragover.stop>
+    <div :id="id" class="card" :draggable="draggable" @dragstart="dragstart" @dragover.stop @dragover="saveIndex()">
         <div class="card__title">
             <h3>{{title}}</h3>
         </div>
@@ -13,10 +13,10 @@
             <div class="text__text">
                 <p>{{date_start}}</p>
             </div>
-            <div v-if="{colIndex} == 3" class="form_item__title_text">
+            <div v-if="col == 3" class="form_item__title_text">
               <p>{{date_end_text}}</p>
             </div>
-            <div v-if="colIndex == 3" class="text__text">
+            <div v-if="col == 3" class="text__text">
               <p>{{date_end}}</p>
             </div>
             <div class="form_item__title_text">
@@ -30,10 +30,13 @@
             <img src="..\assets\btn_done.png" width="30" alt="edit">
             <img src="..\assets\btn_edit.png" width="30" alt="done">
         </div>
+        <slot />
     </div>
 </template>
 
 <script>
+import {bus} from '../main'
+
 export default {
   name: 'card',
   props: {
@@ -51,7 +54,7 @@ export default {
     },
     date_start: {
       type: Date,
-      default: ''
+      default: 'no info'
     },
     date_end: {
       type: String,
@@ -59,11 +62,15 @@ export default {
     },
     owner: {
       type: String,
-      default: ''
+      default: 'no info'
     },
     colIndex: {
       type: Number,
       default: 0
+    },
+    draggable:{
+        type: Boolean,
+        default: true
     }
   },
   data () {
@@ -71,6 +78,7 @@ export default {
       date_start_text: 'Дата и время начала',
       date_end_text: 'Ушло времяни',
       owner_text: 'Ответственный',
+      col: this.colIndex,
       highlightedStyles: {
         color: 'white'
       }
@@ -79,39 +87,25 @@ export default {
   methods: {
     dragstart: e => {
       const target = e.target
+    
       e.dataTransfer.setData('card_id', target.id)
       setTimeout(() => {
         target.style.display = 'none'
       }, 0)
+    },
+    saveIndex() {
+      this.$store.dispatch('SET_NAME', 'asd')
     }
+  },
+  created() {
+    bus.$on('message', val => {
+      alert(this.$store.getters.NAME,val);
+    })
   }
 }
 </script>
 
 <style>
-    .lightMode_c{
-        display: flex;
-        flex-direction: column;
-        justify-content: space-between;
-        border-radius: 10px;
-        padding: 6%;
-        padding-top: 0;
-        background-color: #f1f9ff;
-        color: #219afb;
-        min-height: 200px;
-    }
-    .darkMode_c{
-        display: flex;
-        flex-direction: column;
-        justify-content: space-between;
-        border-radius: 10px;
-        padding: 6%;
-        padding-top: 0;
-        background-color: black;
-        color: white;
-        min-height: 200px;
-        border: 1px solid white;
-    }
     .card__text{
         padding-top: 0;
         min-height: 200px;

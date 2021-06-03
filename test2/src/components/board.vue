@@ -3,21 +3,15 @@
     <div class="task_container__title">
       <h2>{{title}}</h2>
     </div>
-      <card v-for="(card,index) in cards" :key="index" v-bind:class="[{darkMode_c: toChange}, {lightMode_c: !toChange}]"
-      :title='card.title'
-      :date_start='card.date_start'
-      :owner='card.owner'
-      :colIndex='colIndex'
-      />
+    <slot />
   </div>
 </template>
 
 <script>
-import card from './card'
+import {bus} from '../main'
 
 export default {
-  name: 'tasksContainer',
-  components: { card },
+  name: 'board',
   props: {
     id: {
       type: String,
@@ -38,24 +32,8 @@ export default {
   },
   data () {
     return {
-      cards: [
-        {
-          title: 'title',
-          date_start: '1580558031264',
-          owner: 'owner'
-        },
-        {
-          title: 'title',
-          date_start: '1580558031264',
-          owner: 'title'
-        },
-        {
-          title: 'title',
-          date_start: '1580558031264',
-          owner: 'title'
-        }
-      ],
-      isSwitched: false
+      isSwitched: false,
+      col: this.colIndex
     }
   },
   methods: {
@@ -63,12 +41,13 @@ export default {
       this.isSwitched = !this.isSwitched
     },
     drop: e => {
-      const cardId = e.dataTransfer.getData('card_id')
-      const card = document.getElementById(cardId)
+      const card_id = e.dataTransfer.getData('card_id')
+      const card = document.getElementById(card_id)
       card.style.display = 'block'
+      bus.$emit('message',1);
       e.target.appendChild(card)
     }
-  }
+  },
 }
 </script>
 
@@ -85,6 +64,7 @@ export default {
   display: flex;
   flex-direction: column;
   gap: 30px;
+  overflow: hidden;
 }
 .tasks_container h2{
   margin-top: 15px;
