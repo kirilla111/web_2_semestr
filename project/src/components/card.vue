@@ -1,5 +1,5 @@
 <template>
-    <div :id="id" class="card" draggable="true" @dragstart="dragstart" @dragover.prevent>
+    <div :id="id" class="card" :draggable="draggable" @dragstart="dragstart" @dragover.prevent>
         <div class="card__title">
             <h3>{{title.toUpperCase()}}</h3>
         </div>
@@ -11,7 +11,7 @@
                 <p>{{date_start_text}}</p>
             </div>
             <div class="text__text">
-                <p>{{date_start.toLocaleString()}}</p>
+                <p>{{getStartDate()}}</p>
             </div>
             <div v-if="col == 3" class="form_item__title_text">
               <p>{{date_end_text}}</p>
@@ -26,11 +26,11 @@
                 <p>{{owner}}</p>
             </div>
         </div>
-        <div v-if="col == 3" class="card__options">
+        <div draggable="false" v-if="col == 3" class="card__options">
             <img src="..\assets\btn_edit.png" @click="openForm()" width="30" alt="done">
             <img src="..\assets\close_card.png" @click="removeCard()" width="30" alt="edit">
         </div>
-        <div v-else class="card__options">
+        <div draggable="false" v-else class="card__options">
             <img src="..\assets\btn_edit.png" @click="openForm()" width="30" alt="done">
             <img src="..\assets\btn_done.png" @click="moveCardToEnd()" width="30" alt="edit">
         </div>
@@ -59,11 +59,11 @@ export default {
     },
     date_start: {
       type: Date,
-      default: 'NO DATE'
+      default: null
     },
     date_end: {
-      type: String,
-      default: '0 дней, 0 часов'
+      type: Date,
+      default: null
     },
     owner: {
       type: String,
@@ -108,24 +108,58 @@ export default {
       document.getElementById(this.id).style.display = "none"
     },
     moveCardToEnd(){
+      
+       if (this.col === 1){
+          this.$store.commit('dincrement1');
+        }
+        if (this.col === 2){
+          this.$store.commit('dincrement2');
+        }
+        if (this.col === 3){
+          this.$store.commit('dincrement3');
+        }
+
       this.col = 3;
       const card_id = this.id
       const card = document.getElementById(card_id)
       document.getElementById('board-3').appendChild(card)
+
+      if (this.col === 1){
+          this.$store.commit('increment1');
+        }
+        if (this.col === 2){
+          this.$store.commit('increment2');
+        }
+        if (this.col === 3){
+          this.$store.commit('increment3');
+        }
             
+    },
+    getStartDate(){
+      if (this.date_start == null)
+        this.date_start = new Date()
+      return this.date_start.toLocaleString()
     },
     openForm(){
       this.saveId()
       document.getElementById('form_id').style.display = 'block'
     },
     getDateEnd(){
-      var mills = new Date()-this.date_start
-      var sec = mills/1000
-      var min = sec/60
-      var hours = min/60
-      var days = hours/24
-       
-      return (`Дни: ${Math.round(days)} часы: ${Math.round(hours)} минуты: ${Math.round(min)} секунды: ${ Math.round(sec)}`)
+      var mills
+      if (this.date_end == null)
+        mills = new Date()-this.date_start
+      else
+        mills = this.date_end-this.date_start
+
+        var sec = Math.floor(mills/1000)
+        var min = Math.floor(sec/60)
+        var hours = Math.floor(min/60)
+        var days = Math.floor(hours/24)
+        sec = sec - min * 60
+        min = min - hours * 60
+        hours = hours - days * 24
+        return (`Дни: ${days}, часы: ${hours}, минуты: ${min}, секунды: ${ sec}`)
+      
     }
   },
   created() {
@@ -164,6 +198,16 @@ export default {
         
         var dropdown_text = values.shift()
 
+        if (this.col === 1){
+          this.$store.commit('dincrement1');
+        }
+        else if (this.col === 2){
+          this.$store.commit('dincrement2');
+        }
+        else if (this.col === 3){
+          this.$store.commit('dincrement3');
+        }
+
         if (dropdown_text === 'План'){
           this.col = 1
           const card = document.getElementById(this.id)
@@ -180,13 +224,29 @@ export default {
           document.getElementById('board-3').appendChild(card)
         }
 
+        if (this.col === 1){
+          this.$store.commit('increment1');
+        }
+        else if (this.col === 2){
+          this.$store.commit('increment2');
+        }
+        else if (this.col === 3){
+          this.$store.commit('increment3');
+        }
+
         var owner = values.shift()
         if (owner === '')
-          description = 'NO OWNER'
+          owner = 'NO OWNER'
         this.owner = owner
-        //this.description = values.shift()
-        //this.description = values.shift()
-        //this.description = values.shift()
+
+        var date_start = values.shift()
+        if (date_start != 'Invalid Date')
+          this.date_start = date_start
+        
+        var date_end = values.shift()
+        if (date_end != 'Invalid Date')
+          this.date_end = date_end
+
       }
     })
   }
