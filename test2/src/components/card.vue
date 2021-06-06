@@ -1,7 +1,7 @@
 <template>
-    <div :id="id" class="card" :draggable="draggable" @dragstart="dragstart" @dragover.stop @dragover="saveIndex()">
+    <div :id="id" class="card" :draggable="draggable" @dragstart="dragstart" @dragover.prevent @dragover="saveId()">
         <div class="card__title">
-            <h3>{{title}}</h3>
+            <h3>{{title.toUpperCase()}}</h3>
         </div>
         <div class="card__text">
             <div class="text__text">
@@ -11,13 +11,13 @@
                 <p>{{date_start_text}}</p>
             </div>
             <div class="text__text">
-                <p>{{date_start}}</p>
+                <p>{{date_start.toLocaleString()}}</p>
             </div>
             <div v-if="col == 3" class="form_item__title_text">
               <p>{{date_end_text}}</p>
             </div>
             <div v-if="col == 3" class="text__text">
-              <p>{{date_end}}</p>
+              <p>{{getDateEnd()}}</p>
             </div>
             <div class="form_item__title_text">
                 <p>{{owner_text}}</p>
@@ -26,10 +26,15 @@
                 <p>{{owner}}</p>
             </div>
         </div>
-        <div class="card__options">
-            <img src="..\assets\btn_done.png" width="30" alt="edit">
-            <img src="..\assets\btn_edit.png" width="30" alt="done">
+        <div v-if="col == 3" class="card__options">
+            <img src="..\assets\btn_edit.png" @click="openForm()" width="30" alt="done">
+            <img src="..\assets\close_card.png" @click="removeCard()" width="30" alt="edit">
         </div>
+        <div v-else class="card__options">
+            <img src="..\assets\btn_edit.png" @click="openForm()" width="30" alt="done">
+            <img src="..\assets\btn_done.png" @click="moveCardToEnd()" width="30" alt="edit">
+        </div>
+
         <slot />
     </div>
 </template>
@@ -87,19 +92,63 @@ export default {
   methods: {
     dragstart: e => {
       const target = e.target
-    
+      //this.$store.dispatch('SET_ID',e.target.id)
+      //alert(e.target.id)
       e.dataTransfer.setData('card_id', target.id)
       setTimeout(() => {
         target.style.display = 'none'
       }, 0)
     },
-    saveIndex() {
-      this.$store.dispatch('SET_NAME', 'asd')
+    saveId() {
+      this.$store.dispatch('SET_ID',this.title)   
+    },
+    removeCard(){
+      //alert(this.id)
+      document.getElementById(this.id).style.display = "none"
+    },
+    moveCardToEnd(){
+      this.col = 3;
+      const card_id = this.id
+      const card = document.getElementById(card_id)
+      document.getElementById('board-3').appendChild(card)
+            
+    },
+    openForm(){
+      document.getElementById('form_id').style.display = 'block'
+    },
+    getDateEnd(){
+      var mills = new Date()-this.date_start
+      var sec = mills/1000
+      var min = sec/60
+      var hours = min/60
+      var days = hours/24
+       
+      return (`Дни: ${Math.round(days)} часы: ${Math.round(hours)} минуты: ${Math.round(min)} секунды: ${ Math.round(sec)}`)
     }
   },
   created() {
-    bus.$on('message', val => {
-      alert(this.$store.getters.NAME,val);
+    bus.$on('message',val => {
+      if (this.id === val){
+        if (this.col === 1){
+          this.$store.commit('dincrement1');
+        }
+        if (this.col === 2){
+          this.$store.commit('dincrement2');
+        }
+        if (this.col === 3){
+          this.$store.commit('dincrement3');
+        }
+        this.col = this.$store.getters.COL
+        if (this.col === 1){
+          this.$store.commit('increment1');
+        }
+        if (this.col === 2){
+          this.$store.commit('increment2');
+        }
+        if (this.col === 3){
+          this.$store.commit('increment3');
+        }
+      }
     })
   }
 }
@@ -108,7 +157,7 @@ export default {
 <style>
     .card__text{
         padding-top: 0;
-        min-height: 200px;
+        min-height: 220px;
     }
     .text__text{
         color: inherit;

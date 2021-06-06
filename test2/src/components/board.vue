@@ -1,7 +1,7 @@
 <template>
-  <div class="tasks_container" :id="id" @dragover.prevent @drop.prevent="drop">
+  <div class="tasks_container" :id="id" @dragover.prevent @drop.prevent="drop" @dragover="saveIndex()">
     <div class="task_container__title">
-      <h2>{{title}}</h2>
+      <h2>{{getTitle()}}</h2>
     </div>
     <slot />
   </div>
@@ -44,10 +44,21 @@ export default {
       const card_id = e.dataTransfer.getData('card_id')
       const card = document.getElementById(card_id)
       card.style.display = 'block'
-      bus.$emit('message',1);
       e.target.appendChild(card)
+      bus.$emit('message',card_id);
+    },
+    saveIndex() {
+      this.$store.dispatch('SET_COL',this.colIndex)
+    },
+    getTitle(){
+      if (this.colIndex === 1)
+      return (`${this.title} (${this.$store.getters.C1})`)
+      if (this.colIndex === 2)
+      return (`${this.title} (${this.$store.getters.C2})`)
+      if (this.colIndex === 3)
+      return (`${this.title} (${this.$store.getters.C3})`)
     }
-  },
+  }
 }
 </script>
 

@@ -32,37 +32,71 @@
           <div class="main__add_card_container">
               <p v-bind:class="[{text_1: !isSwitched}, {darkMode_text: isSwitched}]">Добавить новую задачу</p>
               <div class="add_card_container__form">
-                  <input  v-bind:class="[{darkMode_input: isSwitched}, {lightMode_input: !isSwitched}]" type="text" size="40" placeholder="Описание">
-                  <button class="form__submit" onclick="add_card_form()"> &#128929; </button>
+                  <input id="options" v-bind:class="[{darkMode_input: isSwitched}, {lightMode_input: !isSwitched}]" type="text" size="40" placeholder="Описание">
+                  <button class="form__submit" @click="createCard()"> &#128929; </button>
               </div>
           </div>
           <div  class="main__tasks_container" >
-              <board :id="'board-1'" :title="'План (1)'">
-                <card v-bind:class="[{darkMode_c: isSwitched}, {lightMode_c: !isSwitched}]"
-                :id="'card1'" 
-                :title="'t1'"
-                :owner="'o1'"
+              <board :id="'board-1'" :title="'План'" :colIndex="1">
+                <card v-for="(col,index) in tasksContainers" :key="index" v-bind:class="[{darkMode_c: isSwitched}, {lightMode_c: !isSwitched}]"
+                :id='col.id'
+                :title='col.title'
                 :colIndex='1'
+                :date_start='col.date_start'
                 />
             </board>
-              <board :id="'board-2'" :title="'В работе (2)'">
-                <card v-bind:class="[{darkMode_c: isSwitched}, {lightMode_c: !isSwitched}]"
-                :id="'card2'"
-                :title="'t1'"
-                :owner="'o2'"
-                :colIndex='2'
-                />
+              <board :id="'board-2'" :title="'В работе'" :colIndex="2">
+                
             </board>
-            <board :id="'board-3'" :title="'Готово (3)'">
-                <card v-bind:class="[{darkMode_c: isSwitched}, {lightMode_c: !isSwitched}]"
-                :id="'card3'"
-                :title="'t3'"
-                :owner="'o3'"
-                :colIndex='3'
-                />
+            <board :id="'board-3'" :title="'Готово'" :colIndex="3">
+                
             </board>
           </div>
     </main>
+
+    <div id="form_id">
+        <div class="form_header">
+            <img src="..\src\assets\exit.png" @click="close_form()" alt="exit">
+        </div>
+        <form>
+            <div class="form_item">
+                <p class="form_item__title_text">Описание</p>
+                <input class="form_item__container" type="text" placeholder="Lorem ipsum" name="user_name" />
+            </div>
+            <div class="form_item">
+                <p class="form_item__title_text">Статус</p>
+                <div class="form_item__container dropdown unselectable" @click="open_dropdown()">
+                    <div id="dropdown_text" class="container__dropbtn">
+                        <p id="dropdown_text__name">План</p>
+                        <p id="dropdown_text__arrow">˅</p>
+                    </div>
+                    <div>
+                        <div id="myDropdown" class="dropdown-content">
+                            <div class="dropdown-content__text" @click="setDropDownText('План')">План</div>
+                            <div class="dropdown-content__text" @click="setDropDownText('В работе')">В работе</div>
+                            <div class="dropdown-content__text" @click="setDropDownText('Готово')">Готово</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="form_item">
+                <p class="form_item__title_text">Ответственный</p>
+                <input class="form_item__container" type="text" placeholder="Введите имя" name="user_name" />
+            </div>
+            <div class="form_item">
+                <p class="form_item__title_text">Дата и время начала</p>
+                <input class="form_item__container" type="text" placeholder="Введите дату" name="user_name" />
+            </div>
+            <div class="form_item">
+                <p class="form_item__title_text">Дата и время завершения</p>
+                <input class="form_item__container" type="text" placeholder="Введите дату" name="user_name" />
+            </div>
+            <div class="form_item_button">
+                ➔
+            </div>
+        </form>
+    </div>
+
   </body>
 </template>
 
@@ -77,27 +111,40 @@ export default {
     return {
       isSwitched: false,
       tasksContainers: [
-        {
-          title: 'План (1)',
-          toChange: false,
-          colIndex: 1
-        },
-        {
-          title: 'В работе (2)',
-          toChange: false,
-          colIndex: 2
-        },
-        {
-          title: 'Готово (3)',
-          toChange: false,
-          colIndex: 3
-        }
-      ]
+      ],
+      card_count: 0
     }
   },
   methods: {
     switch_theme: function () {
       this.isSwitched = !this.isSwitched
+    },
+    createCard(){
+      // card = new card({
+      //   id:`card${this.count}`,
+      //   title: `t`,
+      //   colIndex: 1
+      // });
+      var card_title = document.getElementById('options').value
+      if (card_title === ''){
+        card_title = 'NO INFO'
+      }
+      this.tasksContainers.push({id:`card${this.card_count}`,title: `${card_title}`,colIndex: 1,date_start: new Date()})
+      this.$store.commit('increment1');
+      //card.id = `card${this.count}`
+      //card.title = `t`
+      //card.colIndex = 1
+
+      this.card_count++;
+    },
+    close_form(){
+      document.getElementById('form_id').style.display = 'none'
+    },
+    open_dropdown(){
+      document.getElementById("myDropdown").classList.toggle("show");
+    },
+    setDropDownText(val){
+      document.getElementById("dropdown_text__name").innerHTML = val;
     }
   }
 }
@@ -271,6 +318,132 @@ header {
     justify-content: space-between;
     column-gap: 50px;
   }
+  #form_id{
+     position: fixed;
+     display: none;
+     top: 50%;
+     border-radius: 20px;
+     left: 0;
+     width: 40%;
+     height: 600px;
+     margin-left: 30%;
+     margin-right: 30%;
+     margin-top: -300px;
+     border: 1px solid black;
+     background-color: white;
+ }
+ .form_header{
+     padding: 30px;
+     display: flex;
+     justify-content:flex-end;
+     align-items:flex-end;
+ }
+ form{
+     display: flex;
+     flex-direction: column;
+     justify-content: center;
+     align-items: center;
+     gap: 25px;
+     padding-left: 25%;
+     padding-right: 25%;
+ }
+ .container__dropbtn {
+    cursor: pointer;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 0;
+    margin: 0;
+}
+form p{
+    margin: 0;
+    padding: 0;
+}
+.form_item__container{
+    background-color: #f1f9ff;
+    border-radius: 10px;
+    border: 1px solid #219afb;
+    font-size: 0.7rem;
+    color: #219afb;
+    padding-left: 15px;
+    padding-right: 15px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    font-weight: bold;
+}
+.form_item{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+.form_item_button{
+    width: 85%;
+    text-align: center;
+    border-radius: 5px;
+    background-color: #219afb;
+    color: white;
+    font-size: 0.7rem;
+    padding: 8px;
+    font-weight: lighter;
+}
+.form_item_button:hover{
+    background-color: #2980B9;
+}
+input:focus{
+    outline: 0;
+}
+.dropdown-content__text{
+    padding: 10px;
+    background-color: inherit;
+}
+.dropdown-content__text:hover{
+    color: white;
+    background-color: #219afb;
+}
+/* Dropdown button on hover & focus */
+.container__dropbtn:hover, .dropbtn:focus {
+  
+}
+.unselectable {
+    -webkit-touch-callout: none; /* iOS Safari */
+    -webkit-user-select: none;   /* Chrome/Safari/Opera */
+    -khtml-user-select: none;    /* Konqueror */
+    -moz-user-select: none;      /* Firefox */
+    -ms-user-select: none;       /* Internet Explorer/Edge */
+    user-select: none;           /* Non-prefixed version, currently
+                                    not supported by any browser */
+  }
+/* The container <div> - needed to position the dropdown content */
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+/* Dropdown Content (Hidden by Default) */
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f1f9ff;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+}
+
+/* Links inside the dropdown */
+.dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+
+/* Change color of dropdown links on hover */
+.dropdown-content a:hover {background-color: #f1f9ff;}
+
+/* Show the dropdown menu (use JS to add this class to the .dropdown-content container when the user clicks on the dropdown button) */
+.show {display:block;}
+
   @media (max-width:1000px) and (min-width: 500px) {
       .main__tasks_container{
         grid-template-columns: repeat(2,1fr);
