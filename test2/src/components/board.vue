@@ -1,5 +1,5 @@
 <template>
-  <div class="tasks_container" :id="id" @dragover.prevent @drop.prevent="drop" @dragover="saveIndex()">
+  <div class="tasks_container" :id="id" @dragover.prevent @drop="drop" @dragover="saveIndex()">
     <div class="task_container__title">
       <h2>{{getTitle()}}</h2>
     </div>

@@ -1,5 +1,5 @@
 <template>
-  <body v-bind:class="[{darkMode: isSwitched}, {lightMode: !isSwitched}]">
+  <body @dragover.stop v-bind:class="[{darkMode: isSwitched}, {lightMode: !isSwitched}]">
     <header>
       <div class="header__title">
         <p>Канбан</p>
@@ -61,7 +61,7 @@
         <form>
             <div class="form_item">
                 <p class="form_item__title_text">Описание</p>
-                <input class="form_item__container" type="text" placeholder="Lorem ipsum" name="user_name" />
+                <input id="options_input" class="form_item__container" type="text" placeholder="Lorem ipsum" name="user_name" />
             </div>
             <div class="form_item">
                 <p class="form_item__title_text">Статус</p>
@@ -81,17 +81,17 @@
             </div>
             <div class="form_item">
                 <p class="form_item__title_text">Ответственный</p>
-                <input class="form_item__container" type="text" placeholder="Введите имя" name="user_name" />
+                <input id="owner_input" class="form_item__container" type="text" placeholder="Введите имя" name="user_name" />
             </div>
             <div class="form_item">
                 <p class="form_item__title_text">Дата и время начала</p>
-                <input class="form_item__container" type="text" placeholder="Введите дату" name="user_name" />
+                <input id="date_start_input" class="form_item__container" type="datetime-local" name="user_name" />
             </div>
             <div class="form_item">
                 <p class="form_item__title_text">Дата и время завершения</p>
-                <input class="form_item__container" type="text" placeholder="Введите дату" name="user_name" />
+                <input id="date_end_input" class="form_item__container" type="datetime-local" name="user_name" />
             </div>
-            <div class="form_item_button">
+            <div class="form_item_button" @click="saveAndClose()">
                 ➔
             </div>
         </form>
@@ -103,6 +103,7 @@
 <script>
 import card from './components/card'
 import board from './components/board.vue'
+import {bus} from './main'
 
 export default {
   name: 'App',
@@ -145,6 +146,25 @@ export default {
     },
     setDropDownText(val){
       document.getElementById("dropdown_text__name").innerHTML = val;
+    },
+    saveAndClose(){
+      var options = document.getElementById("options_input").value
+      console.log(options)
+
+      var dropdown_text = document.getElementById("dropdown_text__name").innerHTML
+      console.log(dropdown_text)
+
+      var owner = document.getElementById("owner_input").value
+      console.log(owner)
+
+      var date_start = document.getElementById("date_start_input").value
+      console.log(date_start)
+
+      var date_end = document.getElementById("date_end_input").value
+      console.log(date_end)
+      
+      bus.$emit('save_card',[options,dropdown_text,owner,date_start,date_end]);
+      document.getElementById('form_id').style.display = 'none'
     }
   }
 }

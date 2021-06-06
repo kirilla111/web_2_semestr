@@ -1,5 +1,5 @@
 <template>
-    <div :id="id" class="card" :draggable="draggable" @dragstart="dragstart" @dragover.prevent @dragover="saveId()">
+    <div :id="id" class="card" draggable="true" @dragstart="dragstart" @dragover.prevent>
         <div class="card__title">
             <h3>{{title.toUpperCase()}}</h3>
         </div>
@@ -51,15 +51,15 @@ export default {
     },
     title: {
       type: String,
-      default: 'NO INFO'
+      default: 'NO TITLE'
     },
     description: {
       type: String,
-      default: 'no info'
+      default: 'NO DESCRIPTION'
     },
     date_start: {
       type: Date,
-      default: 'no info'
+      default: 'NO DATE'
     },
     date_end: {
       type: String,
@@ -67,7 +67,7 @@ export default {
     },
     owner: {
       type: String,
-      default: 'no info'
+      default: 'NO OWNER'
     },
     colIndex: {
       type: Number,
@@ -100,10 +100,11 @@ export default {
       }, 0)
     },
     saveId() {
-      this.$store.dispatch('SET_ID',this.title)   
+      this.$store.dispatch('SET_ID',this.id)   
     },
     removeCard(){
       //alert(this.id)
+      this.$store.commit('dincrement3');
       document.getElementById(this.id).style.display = "none"
     },
     moveCardToEnd(){
@@ -114,6 +115,7 @@ export default {
             
     },
     openForm(){
+      this.saveId()
       document.getElementById('form_id').style.display = 'block'
     },
     getDateEnd(){
@@ -148,6 +150,43 @@ export default {
         if (this.col === 3){
           this.$store.commit('increment3');
         }
+      }
+    }),
+    bus.$on('save_card',values => {
+      if (this.id === this.$store.getters.ID){
+        console.log(values)
+
+              //bus.$emit('save_card',[options,dropdown_text,owner,date_start,date_end]);
+        var description = values.shift()
+        if (description === '')
+          description = 'NO DESCRIPTION'
+        this.description = description
+        
+        var dropdown_text = values.shift()
+
+        if (dropdown_text === 'План'){
+          this.col = 1
+          const card = document.getElementById(this.id)
+          document.getElementById('board-1').appendChild(card)
+        }
+        else if (dropdown_text === 'В работе'){
+          this.col = 2
+          const card = document.getElementById(this.id)
+          document.getElementById('board-2').appendChild(card)
+        }
+        else{
+          this.col = 3
+          const card = document.getElementById(this.id)
+          document.getElementById('board-3').appendChild(card)
+        }
+
+        var owner = values.shift()
+        if (owner === '')
+          description = 'NO OWNER'
+        this.owner = owner
+        //this.description = values.shift()
+        //this.description = values.shift()
+        //this.description = values.shift()
       }
     })
   }
