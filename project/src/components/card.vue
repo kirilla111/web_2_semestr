@@ -53,22 +53,6 @@ export default {
       type: String,
       default: 'NO TITLE'
     },
-    description: {
-      type: String,
-      default: 'NO DESCRIPTION'
-    },
-    date_start: {
-      type: Date,
-      default: null
-    },
-    date_end: {
-      type: Date,
-      default: null
-    },
-    owner: {
-      type: String,
-      default: 'NO OWNER'
-    },
     colIndex: {
       type: Number,
       default: 0
@@ -86,7 +70,11 @@ export default {
       col: this.colIndex,
       highlightedStyles: {
         color: 'white'
-      }
+      },
+      date_start: new Date(),
+      date_end: null,
+      owner: 'NO OWNER',
+      description: 'NO DESCRIPTION'
     }
   },
   methods: {
@@ -143,6 +131,45 @@ export default {
     openForm(){
       this.saveId()
       document.getElementById('form_id').style.display = 'block'
+
+      document.getElementById("options_input").value = this.description
+      document.getElementById("owner_input").value = this.owner;
+      document.getElementById("date_start_input").value = this.parseDate(this.date_start)
+      if (this.date_end != null){
+        document.getElementById("date_end_input").value = this.parseDate(this.date_end)
+      }
+      if (this.col === 1){
+        document.getElementById("dropdown_text__name").innerHTML = 'План';
+      }
+      if (this.col === 2){
+         document.getElementById("dropdown_text__name").innerHTML = 'В работе';
+      }
+      if (this.col === 3){
+         document.getElementById("dropdown_text__name").innerHTML = 'Готово';
+      }
+ 
+    },
+    parseDate(date){
+      var dd = date.getDate();
+      var mm = date.getMonth() + 1; // Месяца идут с 0, так что добавляем 1.
+      var yyyy = date.getFullYear();
+      var minutes = date.getMinutes();
+      var hour = date.getHours();
+      if(dd < 10){
+        dd='0' + dd
+      } 
+      if(mm < 10){
+        mm='0' + mm
+      }
+      if(hour < 10){
+        hour='0' + hour
+      }
+      if(minutes < 10){
+        minutes='0' + minutes
+      }
+
+      date = yyyy + '-' + mm + '-' + dd + 'T' + hour + ':' + minutes;
+      return date
     },
     getDateEnd(){
       var mills

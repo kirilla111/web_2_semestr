@@ -207,7 +207,7 @@ export default {
       //card.id = `card${this.count}`
       //card.title = `t`
       //card.colIndex = 1
-
+      document.getElementById("options").value = "";
       this.card_count++;
     },
     close_form() {
