@@ -2,7 +2,7 @@
   <div>
     <div class="header">
       <img
-        srcset="./assets/logo_med.png 1.5x , ./assets/logo_small.jpg 2x"
+        srcset="./assets/logo_med.png 750w , ./assets/logo_small.jpg 1500w"
         class="header__logo"
         src="./assets/logo_med.png"
         alt="Logo"
@@ -281,6 +281,9 @@ body {
     padding-right: 0px;
     display: flex;
     justify-content: center;
+  }
+  #modal{
+    left: 10%;
   }
   .main{
     padding-left: 5px;
