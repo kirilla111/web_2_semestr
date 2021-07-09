@@ -7,7 +7,7 @@
       <p>{{ description }}</p>
     </div>
     <div class="card__item_right">
-      <button @click="close_modal" class="modal__exit">&#215;</button>
+      <button @click="drop_card" class="modal__exit">&#215;</button>
     </div>
   </div>
 </template>
@@ -28,13 +28,20 @@ export default {
       default: 1,
     },
   },
+  methods:{
+      drop_card(){
+          console.log('drop');
+          this.$emit('drop',this.c_id)
+      }
+  }
 };
 </script>
 
 <style>
 .card {
-  display: flex;
-  flex-direction: column;
+  display: block;
+  word-wrap: break-word;
+  padding: 5px;
 }
 .short {
   width: 150px;
@@ -42,6 +49,9 @@ export default {
 }
 .card__item_right {
   text-align: right;
+}
+.modal__exit{
+    color: var(--text-color);
 }
 .item__title{
     font-size: 1.5em;

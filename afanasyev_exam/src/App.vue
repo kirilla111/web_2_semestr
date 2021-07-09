@@ -2,7 +2,7 @@
   <div>
     <div class="header">
       <img
-        srcset="./assets/logo_small.jpg, ./assets/logo_med.png 2x"
+        srcset="./assets/logo_med.png 1.5x , ./assets/logo_small.jpg 2x"
         class="header__logo"
         src="./assets/logo_med.png"
         alt="Logo"
@@ -24,10 +24,12 @@
       <div class="main__container">
         <h1> Список задач</h1>
         <div class="container__list">
-            <card v-for="(task,index) in tasks" :key="index"
-              :c_id="task.id"
+            <card 
+              v-for="(task,index) in tasks" :key="index"
+              :c_id="task.c_id"
               :description="task.description"
               :lvl="task.lvl"
+              @drop="drop(index)"
             />
         </div>
       </div>
@@ -43,12 +45,12 @@
         <p>09.07.2021</p>
       </div>
       <div class="footer_item">
-        <a href="https://github.com/kirilla111/web_2_semestr">Github-репозиторий</a>
+        <a class="item_href" href="https://github.com/kirilla111/web_2_semestr">Github-репозиторий</a>
       </div>
     </div>
 
     <form  v-on:submit.prevent="onSubmit" @submit="addTask" id="modal">
-      <button @click="close_modal"  class="modal__exit">&#215;</button>
+      <button type="button" @click="close_modal" class="modal__exit">&#215;</button>
       <div class="modal__item">
         <label for="description_input">Описание задачи</label>
         <input v-model="description_input_string" id="description_input" required />
@@ -77,9 +79,12 @@ export default {
   data() {
     return {
       theme_mod: false,
-      tasks:[],
+      tasks:[
+        //{c_id:1,description:'asd',lvl:1},{c_id:2,description:'asd',lvl:2},{c_id:3,description:'asd',lvl:3},{c_id:4,description:'asd',lvl:1}
+      ],
       lvl_importance_string: '',
-      description_input_string: ''
+      description_input_string: '',
+      card_count: 0
     };
   },
   methods: {
@@ -93,6 +98,10 @@ export default {
         document.documentElement.style.setProperty("--text-color", "black");
       }
     },
+    drop: function(index){
+      //console.log(index);
+      this.tasks.splice(index,1)
+    },
     close_modal(){
       document.getElementById("modal").style.display = "none";
     },
@@ -100,9 +109,32 @@ export default {
       document.getElementById("modal").style.display = "flex";
     },
     addTask(){
-      console.log('ad');
+      var description = this.description_input_string
+      console.log(this.lvl_importance_string);
+      var lvl = 1;
+      if (this.lvl_importance_string === 'Важный'){
+        lvl = 3;
+      }
+      else if(this.lvl_importance_string === 'Средний'){
+        lvl = 2;
+      }
+      this.tasks.unshift({
+        c_id: `${this.card_count++}`,
+        description: description,
+        lvl: lvl
+      })
+      document.getElementById("modal").style.display = "none";
+      this.description_input_string = '';
+      this.lvl_importance_string = '';
     }
   },
+  computed: {
+    // getTasks: function() {
+    //   var new_tasks = this.tasks;
+    //   var newnew = new_tasks.reverse();
+    //   return newnew
+    // }
+  }
 };
 </script>
 
@@ -178,6 +210,7 @@ body {
   top: 35%;
   padding: 20px;
   gap: 20px;
+  background: var(--background);
   left: 35%;
   border: 1px solid var(--hover-color);
 }
@@ -199,11 +232,20 @@ body {
   align-items: center;
 }
 .container__list {
-  display: block;
-  padding: 50px 5%;
-  margin-bottom: 300px;
+  display: grid;
+  max-width: 100%;
+  padding: 50px;
+  margin-bottom: 250px;
+  grid-column-gap: 5%;
+  grid-row-gap: 20px;
+  grid-template-columns: repeat(auto-fit, 300px);
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
 }
-
+.item_href{
+  color: var(--text-color);
+}
 @media (max-width: 500px) {
   .header,.footer {
     flex-direction: column;
