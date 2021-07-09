@@ -2,7 +2,7 @@
   <div>
     <div class="header">
       <img
-        srcset="./assets/logo_med.png 750w , ./assets/logo_small.jpg 1500w"
+        srcset="./assets/logo_small.jpg 750w , ./assets/logo_med.png 1500w"
         class="header__logo"
         src="./assets/logo_med.png"
         alt="Logo"
@@ -260,7 +260,7 @@ body {
   display: grid;
   max-width: 100%;
   padding: 50px;
-  margin-bottom: 250px;
+  margin-bottom: 300px;
   grid-column-gap: 5%;
   grid-row-gap: 20px;
   grid-template-columns: repeat(auto-fit, 300px);
