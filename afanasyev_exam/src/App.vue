@@ -63,7 +63,7 @@
           <option>Не важный</option>
         </select>
       </div>
-      <button class="modal__button main__button" type="submit">Добавить</button>
+      <button id="submit_bu" class="modal__button disabled" type="submit">Добавить</button>
     </form>
   </div>
 </template>
@@ -104,6 +104,8 @@ export default {
     },
     close_modal(){
       document.getElementById("modal").style.display = "none";
+      this.description_input_string = '';
+      this.lvl_importance_string = '';
     },
     open_modal(){
       document.getElementById("modal").style.display = "flex";
@@ -134,6 +136,28 @@ export default {
     //   var newnew = new_tasks.reverse();
     //   return newnew
     // }
+  },
+  watch:{
+    description_input_string: function(){
+      if (this.lvl_importance_string != '' && this.description_input_string != ''){
+        //console.log(2);        
+        document.getElementById("submit_bu").classList.remove('disabled');
+        document.getElementById("submit_bu").classList.add('main__button');
+      }else{
+         document.getElementById("submit_bu").classList.add('disabled');
+         document.getElementById("submit_bu").classList.remove('main__button');
+      }
+    },
+    lvl_importance_string: function(){
+      if (this.lvl_importance_string != '' && this.description_input_string != ''){
+        //console.log(2);        
+        document.getElementById("submit_bu").classList.remove('disabled');
+        document.getElementById("submit_bu").classList.add('main__button');
+      }else{
+         document.getElementById("submit_bu").classList.add('disabled');
+         document.getElementById("submit_bu").classList.remove('main__button');
+      }
+    }
   }
 };
 </script>
@@ -214,6 +238,7 @@ body {
   left: 35%;
   border: 1px solid var(--hover-color);
 }
+
 .modal__button {
   padding: 10px;
 }
@@ -267,5 +292,28 @@ body {
     flex-direction: column;
     gap: 10px;
   }
+}
+.disabled{
+ border: 1px solid gray; 
+}
+.disabled:hover{
+ 
+}
+.disabled:active{
+  border: 2px solid red;
+  animation: shake 0.5s;
+}
+@keyframes shake {
+  0% { transform: translate(1px, 1px) rotate(0deg); }
+  10% { transform: translate(-1px, -2px) rotate(-1deg); }
+  20% { transform: translate(-3px, 0px) rotate(1deg); }
+  30% { transform: translate(3px, 2px) rotate(0deg); }
+  40% { transform: translate(1px, -1px) rotate(1deg); }
+  50% { transform: translate(-1px, 2px) rotate(-1deg); }
+  60% { transform: translate(-3px, 1px) rotate(0deg); }
+  70% { transform: translate(3px, 1px) rotate(-1deg); }
+  80% { transform: translate(-1px, -1px) rotate(1deg); }
+  90% { transform: translate(1px, 2px) rotate(0deg); }
+  100% { transform: translate(1px, -2px) rotate(-1deg); }
 }
 </style>
